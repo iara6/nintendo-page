@@ -8,9 +8,11 @@
 
 :root {
   --clr-red: #e60012;
+  --clr-dark-red: #ac000d;
   --clr-blue: #d6f0fa;
   --clr-dark-blue: #0b2b6b;
   --clr-dark-gray: #434242;
+  --clr-medium-gray: #727272;
   --clr-light-gray: #efefef; 
 }
 
@@ -105,9 +107,70 @@ body {
   padding: 6px 12px;
   cursor: pointer;
 }
-
+.shipping-info {
+  justify-content: center;
+  padding: 0.7rem 0;
+}
+.shipping-info span:first-child {
+  padding-right: 1rem;
+  border-right: 1px solid var(--clr-dark-gray);
+}
+.shipping-info span:last-child {
+  padding-left: 1rem;
+}
 .shipping-info svg {
   color: var(--clr-red);
   margin-right: 10px;
 }
 
+.shipping-info a {
+  color: var(--clr-dark-gray);
+  font-weight: 600;
+}
+.shipping-info a:hover {
+  color: var(--clr-red);
+} 
+.main-game-section {
+  background-color: var(--clr-blue);
+  border: 1px solid red;
+}
+.game-div {
+  background-color: white;
+  padding: 2rem 3rem;
+  max-width: 1240px;
+  margin-inline: auto;
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px 0 rgba(60, 64, 89, 0.15);
+
+}
+
+.breadcrumb-list {
+  font-size: 12px;
+  font-weight: 700;
+}
+.breadcrumb-list ol {
+ list-style-type: none;
+ display: flex;
+}
+.breadcrumb-list ol li {
+  display: flex;
+}
+
+.breadcrumb-list a {
+ text-decoration: none;
+ color: var(--clr-medium-gray);
+}
+.breadcrumb-list a:last-child {
+  color: #484848;
+}
+.breadcrumb-list i {
+  color: rgb(114, 114, 114, 0.4);
+  font-size: 13px;
+  margin-inline: 9px;
+}
+
+.slides-with-info-div {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
