@@ -12,13 +12,14 @@
   --clr-blue: #d6f0fa;
   --clr-dark-blue: #0b2b6b;
   --clr-dark-gray: #434242;
+  --clr-gray: #484848;
   --clr-medium-gray: #727272;
-  --clr-light-gray: #efefef; 
+  --clr-light-gray: #efefef;
 }
 
 body {
   color: var(--clr-dark-gray);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Geologica", sans-serif;
 }
 
 
@@ -173,4 +174,124 @@ body {
 .slides-with-info-div {
   display: grid;
   grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+.game-info {
+  color: var(--clr-gray);
+}
+.game-info h1 {
+  font-size: 1.8rem;
+  /* line-height: 2; */
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.version-div,
+.edition-div {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 3;
+}
+.version-div span,
+.edition-div span {
+  font-weight: 600;
+}
+.price-like-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0 1.5rem;
+}
+.price-like-div div {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.wishlist-button {
+  border: none;
+  background: transparent;
+  padding: 3px 4px;
+  cursor: pointer;
+}
+.wishlist-button i {
+  color: var(--clr-red);
+  font-size: 1.7rem;
+  transform: scale(0.95, 1);
+}
+.wishlist-button:hover i {
+  color: var(--clr-dark-red);
+}
+
+.download-button {
+  color: white;
+  background-color: var(--clr-red);
+  border: none;
+  width: 100%;
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.download-button svg {
+  margin-right: 1rem;
+}
+
+.download-button:hover {
+  background-color: var(--clr-dark-red);
+  transform: scale(1.05,1.03);
+}
+
+.item-info {
+  font-size: 12px;
+  line-height: 4;
+}
+.slide-image-container {
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  display: flex;
+  /* overflow: hidden; */
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; 
+  gap: 0;
+  padding: 0;
+}
+.slide-image-container img {
+  /* display: none; */
+/*   display: block;
+  width: 100%;
+  object-fit: cover; */
+  flex: 0 0 100%;   
+  width: 100%;
+  /* height: 100%;   */
+  object-fit: cover;
+  display: block;
+  scroll-snap-align: start;
+}
+
+.slide-options {
+  display: flex;
+  margin: 12px 0;
+   /* overflow: hidden; */
+  overflow-x: auto;
+}
+.slide-options > div {
+  flex: 0 0 calc((100% - (8px * 5)) / 6); 
+  margin-inline: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.slide-options img {
+  width: 100%;
+  display: block;
+
+  height: 100%;
+  object-fit: cover;
 }
