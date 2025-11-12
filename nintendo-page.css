@@ -53,6 +53,7 @@ body {
   gap: 1rem;
   margin-left: 1rem;
 }
+
 .header-buttons svg {
   color: var(--clr-red);
 }
@@ -80,6 +81,62 @@ body {
 .search button:hover svg,
 .wish-list:hover,
 .cart:hover {
+  color: var(--clr-red);
+}
+.header-buttons>div {
+  /* border: 1px solid red; */
+ /*  position: relative; */
+}
+.dropdown-content {
+  position: absolute;
+  top: 3.75rem;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background-color: white;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+/* 
+  border: 1px solid green; */
+}
+.gaming-systems {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0; 
+  min-height: 145px;
+  border-bottom: 1px solid #dadada;
+}
+.gaming-systems a,
+.explore-buttons a {
+  text-decoration: none;
+  color: var(--clr-dark-gray);
+}
+.gaming-systems a {
+  width: 300px;
+  font-size: 21px;
+  font-weight: 600;
+ /*  border: 1px solid blueviolet; */
+  transition: color 150ms linear;
+}
+.gaming-systems a:hover {
+  color: var(--clr-red);
+}
+
+.gaming-systems span {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+}
+.gaming-systems img {
+  height: 100px;
+  display: block;
+  margin-inline: auto;
+}
+.explore-buttons {
+  display: flex;
+  justify-content: center;
+}
+.explore-buttons svg {
   color: var(--clr-red);
 }
 .header-div>div:nth-child(2) {
