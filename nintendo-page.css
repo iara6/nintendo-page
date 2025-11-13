@@ -117,7 +117,8 @@ body {
 }
 .gaming-systems a,
 .explore-buttons a,
-.explore-characters a {
+.explore-characters a,
+.shop-categories a {
   text-decoration: none;
   color: var(--clr-dark-gray);
 }
@@ -195,10 +196,6 @@ body {
   margin-right: 6px;
 }
 
-/* .shop-dropdown {
-
-} */
-
 .close-dropdown-button {
   position: absolute;
   top: 1rem;
@@ -211,6 +208,72 @@ body {
 .close-dropdown-button:hover {
   color: var(--clr-gray);
 }
+
+/* .shop-dropdown {
+  display: none;
+}
+ */
+.shop-dropdown>div {
+  display: flex;
+  align-items: center;
+}
+.my-nintendo-store {
+  background-color: var(--clr-red);
+  color: white;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  min-width: 300px;
+  flex-basis: max-content;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 150ms linear;
+}
+.my-nintendo-store:hover {
+  background-color: var(--clr-dark-red);
+}
+
+.my-nintendo-store h2 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.my-nintendo-store h2 svg {
+  margin-right: 10px;
+}
+.my-nintendo-store div p {
+  text-decoration: 2px underline;
+  text-underline-offset: 4px;
+  line-height: 2;
+}
+.shop-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  flex-grow: 1;
+  padding: 1.5rem;
+  margin-right: 1.5rem;
+  gap: 1rem;
+  border: 1px solid red;
+}
+.shop-categories a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  height: 60px;
+  padding: 4px 12px;
+  border: 1px solid var(--clr-border);
+  border-radius: 2rem;
+}
+.shop-categories svg {
+  color: var(--clr-red);
+  width: 2rem;
+  margin-right: 10px;
+}
+
 
 
 .header-div>div:nth-child(2) {
