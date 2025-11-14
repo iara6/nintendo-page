@@ -118,7 +118,8 @@ body {
 .gaming-systems a,
 .explore-buttons a,
 .explore-characters a,
-.shop-categories a {
+.shop-categories a,
+.support-categories a {
   text-decoration: none;
   color: var(--clr-dark-gray);
 }
@@ -167,7 +168,9 @@ body {
   transition: var(--trsn--color);
 }
 .explore-buttons a:hover,
-.explore-characters a:hover  {
+.explore-characters a:hover,
+.shop-categories a:hover,
+.support-categories a:hover  {
   color: var(--clr-red);
 }
 
@@ -204,20 +207,23 @@ body {
   border: none;
   cursor: pointer;
   color: rgb(200, 200, 200);
+  transition: var(--trsn--color);
 }
 .close-dropdown-button:hover {
   color: var(--clr-gray);
 }
 
-/* .shop-dropdown {
+.shop-dropdown { /* ********************* */
   display: none;
 }
- */
-.shop-dropdown>div {
+
+.shop-dropdown>div,
+.support-dropdown>div {
   display: flex;
   align-items: center;
 }
-.my-nintendo-store {
+.my-nintendo-store,
+.support-home {
   background-color: var(--clr-red);
   color: white;
   padding: 1.5rem;
@@ -229,13 +235,16 @@ body {
   cursor: pointer;
   transition: all 150ms linear;
 }
-.my-nintendo-store:hover {
+.my-nintendo-store:hover,
+.support-home:hover {
   background-color: var(--clr-dark-red);
 }
-
 .my-nintendo-store h2 {
   display: flex;
   align-items: center;
+}
+.my-nintendo-store h2,
+.support-home h2 {
   font-size: 2rem;
   font-weight: 600;
 }
@@ -247,7 +256,8 @@ body {
   text-underline-offset: 4px;
   line-height: 2;
 }
-.shop-categories {
+.shop-categories,
+.support-categories {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -255,9 +265,9 @@ body {
   padding: 1.5rem;
   margin-right: 1.5rem;
   gap: 1rem;
-  border: 1px solid red;
 }
-.shop-categories a {
+.shop-categories a,
+.support-categories a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,13 +277,18 @@ body {
   padding: 4px 12px;
   border: 1px solid var(--clr-border);
   border-radius: 2rem;
+  transition: var(--trsn--color);
 }
-.shop-categories svg {
+.shop-categories svg,
+.support-categories svg {
   color: var(--clr-red);
   width: 2rem;
   margin-right: 10px;
 }
 
+.support-dropdown { /* ***************** */
+  display: none;
+}
 
 
 .header-div>div:nth-child(2) {
