@@ -85,10 +85,6 @@ body {
 .cart:hover {
   color: var(--clr-red);
 }
-.header-buttons>div {
-  /* border: 1px solid red; */
- /*  position: relative; */
-}
 
 /* MENU DROPDOWN CONTENT */
 .dropdown-content {
@@ -96,16 +92,32 @@ body {
   top: 3.75rem;
   left: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 100;
   background-color: white;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-/* 
-  border: 1px solid green; */
-}
 
+  max-height: 0;
+  overflow: hidden;       /* clip as it animates */
+  opacity: 0;
+  transition: max-height 250ms linear, opacity 150ms ease;
+ /*  transition: all 800ms linear; */
+ /*  border: 1px solid green; */
+}
+.dropdown-content.open-drop {
+  opacity: 1;
+ /*  max-height: auto; */
+}
 .explore-dropdown { /* ***************** */
-  display: none;
+  display: block;
+  /* display: none; */
+
+ /*  max-height: 0;
+ */
+
+  /* height: 0; */
+  /* visibility: 0;
+  opacity: 0; */
 }
 .gaming-systems {
   display: flex;
@@ -290,6 +302,25 @@ body {
   display: none;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 3.75rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  transition: opacity 150ms linear, visibility 150ms linear;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 70;
+} 
+
+.modal-overlay.open-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+/************************************/
 
 .header-div>div:nth-child(2) {
   gap: 1rem;
