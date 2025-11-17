@@ -98,9 +98,10 @@ body {
   border-bottom-right-radius: 12px;
 
   max-height: 0;
-  overflow: hidden;       /* clip as it animates */
+  overflow: hidden;   
   opacity: 0;
   transition: max-height 250ms linear, opacity 150ms ease;
+  will-change: max-height, opacity;
  /*  transition: all 800ms linear; */
  /*  border: 1px solid green; */
 }
@@ -109,8 +110,8 @@ body {
  /*  max-height: auto; */
 }
 .explore-dropdown { /* ***************** */
-  display: block;
-  /* display: none; */
+ /*  display: block; */
+  display: none;
 
  /*  max-height: 0;
  */
