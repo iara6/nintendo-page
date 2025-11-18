@@ -370,8 +370,9 @@ body {
 }
 .search-input-div {
   margin-left: 1rem;
-  border: 1px solid red;
+  border-bottom: 1px solid var(--clr-red);
   position: relative;
+  width: 450px;
 }
 .search-input-div svg {
   position: absolute;
@@ -381,8 +382,72 @@ body {
 }
 .search-input-div input {
   font-family: "Geologica", sans-serif;
-  padding: 0.3rem 1.7rem;
+  font-size: 0.9;
+  padding: 0.4rem 1.7rem;
+  width: 100%;
+  border: none;
 }
+.search-input-div input::placeholder {
+  font-weight: 450;
+  font-size: 0.85rem;
+}
+.search-input-div input:focus {
+  outline: none;
+}
+.search-topics-products {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 2.5rem;
+  padding: 0.75rem 7.5rem 2.5rem;
+}
+
+.trending-topics-div h2,
+.top-store-products h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.trending-topics-div li {
+  list-style: none;
+}
+.trending-topics-div li a {
+  text-decoration: none;
+  color: var(--clr-red);
+  line-height: 1.9;
+  font-weight: 600;
+  transition: var(--trsn--color);
+}
+
+.trending-topics-div li a:hover {
+  color: var(--clr-dark-red);
+}
+.top-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 343px));
+  gap: 1.5rem
+}
+.top-product-div {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  border: 1px solid var(--clr-border);
+  border-radius: 12px;
+  padding: 8px 1rem 8px 8px;
+}
+.top-product-img-div {
+  max-width: 94px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.switch-2 {
+  background-color: var(--clr-red);
+  height: 20px;
+}
+.top-product-img-div img {
+  width: 100%;
+}
+
+
 .modal-overlay-search {
   position: fixed;
   top: 0;
