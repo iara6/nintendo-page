@@ -439,6 +439,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
 }
+
 .switch-2 {
   background-color: var(--clr-red);
   height: 20px;
