@@ -6,16 +6,18 @@ const dropdownContents = document.querySelectorAll('.dropdown');
 const dropdownCloseBtns = document.querySelectorAll('.close-dropdown-button');
 const headerDiv = document.querySelector('.header-div');
 
+const searchBtn = document.querySelector('.search button');
+const dropContentSearchContainer = document.querySelector('.dropdown-content-search');
+const dropdownSearchContent = document.querySelector('.dropdown-content-search-div'); 
+const overlaySearch = document.querySelector('.modal-overlay-search');
+const dropdownSearchCloseBtn = document.querySelector('.close-search-dropdown-button');
+
 headerButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     if (dropContentContainer.classList.contains('open-drop')) {
       closeDropdown();
       return;
     }
-   /*  if (btn.classList.contains('selected')) {
-      closeDropdown();
-      return; 
-    } */
 
     headerButtons.forEach(btn => btn.classList.remove('selected'));
     btn.classList.add('selected');
@@ -26,14 +28,9 @@ headerButtons.forEach(btn => {
     dropdownContents.forEach(content => content.style.display = "none");
     
     dropdownContent.style.display = "block";
-    /* dropContentContainer.classList.remove('open-drop'); */
-  /*   dropContentContainer.style.maxHeight = '0px'; */
-
-    /* const fullHeight = dropContentContainer.scrollHeight; */
     
     dropContentContainer.classList.add('open-drop');
     dropContentContainer.style.maxHeight = dropContentContainer.scrollHeight + 'px';
-  /*   dropContentContainer.style.maxHeight = fullHeight + 'px'; */
 
     overlay.classList.add('open-modal');
   })
@@ -51,23 +48,42 @@ function closeDropdown() {
 overlay.addEventListener('click', (e) => {
   if (e.target === overlay) closeDropdown();
 });
-/* headerDiv.addEventListener('click', (e) => {
-  if (e.target === headerDiv) closeDropdown();
-}) */
+
 dropdownCloseBtns.forEach(btn => {
   btn.addEventListener('click', closeDropdown);
 })
 
 headerDiv.addEventListener('click', (e) => {
-  // If click came from a header button (or inside it) -> do nothing
   if (e.target.closest('.header-buttons button')) return;
-
-  // If click came from inside the dropdown content -> do nothing
   if (e.target.closest('.dropdown-content')) return;
-
-  // If click came from a dedicated close button inside the header -> let its handler run
   if (e.target.closest('.close-dropdown-button')) return;
-
-  // Otherwise (logo, other links, empty space, etc.) -> close dropdown
   closeDropdown();
+});
+
+/* HEADER SEARCH DROPDOWN MENU */
+
+searchBtn.addEventListener('click', () => {
+  if (dropContentSearchContainer.classList.contains('open-drop')) {
+    closeSearchDropdown();
+    return;
+  }
+ 
+  dropdownSearchContent.style.display = "block";
+  dropContentSearchContainer.classList.add('open-drop');
+  dropContentSearchContainer.style.maxHeight = dropContentSearchContainer.scrollHeight + 'px';
+  overlaySearch.classList.add('open-modal');
+});
+
+function closeSearchDropdown() {
+  dropContentSearchContainer.style.maxHeight = '0px';
+  dropContentSearchContainer.classList.remove('open-drop');
+  dropdownSearchContent.style.display = "none";
+
+  overlaySearch.classList.remove('open-modal');
+};
+
+dropdownSearchCloseBtn.addEventListener('click', closeSearchDropdown);
+
+overlaySearch.addEventListener('click', (e) => {
+  if (e.target === overlaySearch) closeSearchDropdown();
 });
