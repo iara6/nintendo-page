@@ -532,6 +532,81 @@ body {
   padding: 6px 12px;
   cursor: pointer;
 }
+
+.log-in-side-content-div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 360px;
+  background-color: var(--clr-light-gray);
+  padding: 0 20px;
+  transition: all 200ms ease;
+  /* visibility: visible; */
+  z-index: 100;
+}
+.log-in-side-content-div h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 3;
+  margin-bottom: 0.7rem;
+}
+.log-in-side-info {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem 1.75rem 0.5rem;
+}
+.log-in-side-info img {
+  width: 100%;
+}
+.log-in-side-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.log-in-side-info div {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.6;
+  display: flex;
+}
+.log-in-side-info div svg {
+  margin-right: 8px;
+}
+.log-in-side-buttons {
+  margin: 1rem 0;
+}
+.log-in-side-buttons button {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--clr-red);
+  transition: all 200ms linear;
+  cursor: pointer;
+}
+.log-in-side-buttons button:first-child {
+  background-color: var(--clr-red);
+  color: white;
+  margin-bottom: 6px;
+}
+.log-in-side-buttons button:first-child:hover {
+  background-color: var(--clr-dark-red);
+}
+.log-in-side-buttons button:last-child {
+  background-color: white;
+  color: var(--clr-red);
+}
+.log-in-side-buttons button:last-child:hover {
+  background-color: rgb(253, 230, 231);
+  color: var(--clr-dark-red);
+}
+
+
+
 .shipping-info {
   justify-content: center;
   padding: 0.7rem 0;
