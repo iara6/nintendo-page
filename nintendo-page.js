@@ -87,3 +87,26 @@ dropdownSearchCloseBtn.addEventListener('click', closeSearchDropdown);
 overlaySearch.addEventListener('click', (e) => {
   if (e.target === overlaySearch) closeSearchDropdown();
 });
+
+/* LOG-IN SIDE PANEL */
+
+const sidePanel = document.querySelector('.log-in-side-content-div');
+const logInBtn = document.querySelector('.log-in-button');
+const sidePanelCloseBtn = document.querySelector('.close-side-panel-button');
+const overlaySidePanel = document.querySelector('.modal-overlay-side-panel');
+
+logInBtn.addEventListener('click', () => {
+  sidePanel.classList.add('slide-in');
+  overlaySidePanel.classList.add('open-modal');
+});
+
+function closeSidePanel() {
+  sidePanel.classList.remove('slide-in');
+  overlaySidePanel.classList.remove('open-modal');
+};
+
+sidePanelCloseBtn.addEventListener('click', closeSidePanel);
+
+overlaySidePanel.addEventListener('click', (e) => {
+  if (e.target === overlaySidePanel) closeSidePanel();
+});

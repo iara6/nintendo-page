@@ -497,7 +497,8 @@ body {
   transform: scale(0.95, 1);
 }
 
-.modal-overlay-search {
+.modal-overlay-search,
+.modal-overlay-side-panel {
   position: fixed;
   top: 0;
   left: 0;
@@ -509,7 +510,8 @@ body {
   opacity: 0;
   z-index: 70;
 }
-.modal-overlay-search.open-modal {
+.modal-overlay-search.open-modal,
+.modal-overlay-side-panel.open-modal {
   visibility: visible;
   opacity: 1;
 }
@@ -536,14 +538,19 @@ body {
 .log-in-side-content-div {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -360px;
   height: 100%;
   width: 360px;
+  /* width: 0; */
   background-color: var(--clr-light-gray);
   padding: 0 20px;
   transition: all 200ms ease;
   /* visibility: visible; */
   z-index: 100;
+  transition: 200ms ease;
+}
+.log-in-side-content-div.slide-in {
+  right: 0;
 }
 .log-in-side-content-div h2 {
   font-size: 1.3rem;
@@ -562,12 +569,13 @@ body {
 .log-in-side-info h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin: 0 12px 0.4rem;
 }
 .log-in-side-info div {
   font-size: 0.86rem;
   font-weight: 600;
   line-height: 1.6;
+  margin: 0 12px;
   display: flex;
 }
 .log-in-side-info div svg {
@@ -603,6 +611,50 @@ body {
 .log-in-side-buttons button:last-child:hover {
   background-color: rgb(253, 230, 231);
   color: var(--clr-dark-red);
+}
+
+.order-status,
+.log-in-lower-links div {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 48px;
+  background-color: white;
+  border: 1px solid var(--clr-border);
+  font-weight: 600;
+  transition: var(--trsn--color);
+  cursor: pointer;
+}
+.order-status {
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+.log-in-lower-links div {
+  justify-content: space-between;
+}
+.log-in-lower-links div:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.log-in-lower-links div:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.log-in-lower-links div:not(:last-child) {
+  margin-bottom: -1px;
+}
+.log-in-lower-links span {
+  display: flex;
+  align-items: center;
+}
+.order-status:hover,
+.log-in-lower-links div:hover {
+  color: var(--clr-red);
+}
+.order-status svg,
+.log-in-lower-links span svg {
+  color: var(--clr-red);
+  margin-right: 8px;
 }
 
 
