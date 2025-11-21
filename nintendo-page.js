@@ -110,3 +110,50 @@ sidePanelCloseBtn.addEventListener('click', closeSidePanel);
 overlaySidePanel.addEventListener('click', (e) => {
   if (e.target === overlaySidePanel) closeSidePanel();
 });
+
+/* IMAGE GALLERY SLIDER */
+
+const slidesContainer = document.querySelector('.slide-image-container');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.slide-image__prev button');
+const nextBtn = document.querySelector('.slide-image__next button');
+
+let counter = 0;
+
+/* nextBtn.addEventListener('click', () => {
+  counter = (counter + 1) % slides.length;
+  carousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  counter = (counter - 1 + slides.length) % slides.length;
+  carousel();
+});
+
+function carousel() {
+  slidesContainer.style.transform = `translateX(-${counter * 100}%)`;
+} */
+
+nextBtn.addEventListener('click', () => {
+  counter++;
+  carousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  counter--;
+  carousel();
+});
+
+function carousel() {
+  if (counter === slides.length) {
+    counter = 0;
+  }
+
+  if (counter < 0) {
+    counter = slides.length - 1;
+  }
+
+  slides.forEach((slide) => {
+    slide.style.transform = `translateX(-${counter * 100}%)`;
+  });
+};

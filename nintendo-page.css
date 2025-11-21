@@ -538,19 +538,19 @@ body {
 .log-in-side-content-div {
   position: fixed;
   top: 0;
-  right: -360px;
+  right: 0;
   height: 100%;
   width: 360px;
-  /* width: 0; */
   background-color: var(--clr-light-gray);
   padding: 0 20px;
+  transform: translate(100%); 
   transition: all 200ms ease;
   /* visibility: visible; */
   z-index: 100;
   transition: 200ms ease;
 }
 .log-in-side-content-div.slide-in {
-  right: 0;
+  transform: translate(0); 
 }
 .log-in-side-content-div h2 {
   font-size: 1.3rem;
@@ -680,7 +680,7 @@ body {
   font-weight: 600;
 }
 .shipping-info a:hover {
-  color: var(--clr-red);
+  color: var(--clr-dark-red);
 } 
 .main-game-section {
   background-color: var(--clr-blue);
@@ -821,7 +821,6 @@ body {
 
 .slide-image__prev,
 .slide-image__next {
-  border: 2px solid red;
   position: absolute;
   top: calc(50% - 2rem);
   z-index: 10;
@@ -842,8 +841,8 @@ body {
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.25);
   border: none;
+  background-color: rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
 
@@ -863,10 +862,10 @@ body {
   aspect-ratio: 16 / 9;
   border-radius: 12px;
   display: flex;
-  /* overflow: hidden; */
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory; 
+  overflow: hidden;
+  /* overflow-x: auto; */
+  /* overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;  */
   gap: 0;
   padding: 0;
   cursor: zoom-in;
@@ -878,7 +877,8 @@ body {
   /* height: 100%;   */
   object-fit: cover;
   display: block;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
+  transition: all 500ms ease-in-out;
 }
 
 .slide-options {
