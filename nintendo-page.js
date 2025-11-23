@@ -60,6 +60,7 @@ headerDiv.addEventListener('click', (e) => {
   closeDropdown();
 });
 
+
 /* HEADER SEARCH DROPDOWN MENU */
 
 searchBtn.addEventListener('click', () => {
@@ -88,6 +89,7 @@ overlaySearch.addEventListener('click', (e) => {
   if (e.target === overlaySearch) closeSearchDropdown();
 });
 
+
 /* LOG-IN SIDE PANEL */
 
 const sidePanel = document.querySelector('.log-in-side-content-div');
@@ -110,6 +112,7 @@ sidePanelCloseBtn.addEventListener('click', closeSidePanel);
 overlaySidePanel.addEventListener('click', (e) => {
   if (e.target === overlaySidePanel) closeSidePanel();
 });
+
 
 /* IMAGE GALLERY SLIDER */
 
@@ -157,3 +160,26 @@ function carousel() {
     slide.style.transform = `translateX(-${counter * 100}%)`;
   });
 };
+
+/* thumbnail carousel slider */
+
+const slideOptionsWrapper= document.querySelector('.slide-options');
+const slideOptionsContainer= document.querySelector('.slide-options__cont');
+const slideOptions = document.querySelectorAll('.slide-options__cont div');
+const thumbnailPrevBtn = document.querySelector('.slide-options__prev button');
+const thumbnailNextBtn = document.querySelector('.slide-options__next button');
+
+
+
+thumbnailNextBtn.addEventListener('click', () => {
+  console.log('right');
+  const maxTranslateX = slideOptionsContainer.scrollWidth - slideOptionsWrapper.offsetWidth;
+  
+  slideOptionsContainer.style.transform = `translateX(-${maxTranslateX}px)`;
+});
+
+
+thumbnailPrevBtn.addEventListener('click', () => {
+  console.log('left');
+  slideOptionsContainer.style.transform = `translateX(0)`;
+});
