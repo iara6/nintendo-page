@@ -117,7 +117,8 @@ overlaySidePanel.addEventListener('click', (e) => {
 /* IMAGE GALLERY SLIDER */
 
 const slidesContainer = document.querySelector('.slide-image-container');
-const slides = document.querySelectorAll('.slide');
+/* const slides = document.querySelectorAll('.slide'); */
+const slides = document.querySelectorAll('.slide-image-container span');
 const prevBtn = document.querySelector('.slide-image__prev button');
 const nextBtn = document.querySelector('.slide-image__next button');
 
@@ -172,7 +173,6 @@ const thumbnailNextBtn = document.querySelector('.slide-options__next button');
 
 
 thumbnailNextBtn.addEventListener('click', () => {
-  console.log('right');
   const maxTranslateX = slideOptionsContainer.scrollWidth - slideOptionsWrapper.offsetWidth;
   
   slideOptionsContainer.style.transform = `translateX(-${maxTranslateX}px)`;
@@ -180,6 +180,5 @@ thumbnailNextBtn.addEventListener('click', () => {
 
 
 thumbnailPrevBtn.addEventListener('click', () => {
-  console.log('left');
   slideOptionsContainer.style.transform = `translateX(0)`;
 });
