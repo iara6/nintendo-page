@@ -24,6 +24,73 @@ body {
   font-family: "Geologica", sans-serif;
 }
 
+.slide-in-top-panel-div {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--clr-light-gray);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+
+  transform: translateY(-100%); 
+  transition: all 300ms ease-out;
+}
+.slide-in-top-panel-div.top-slide {
+  transform: translateY(0); 
+}
+.slide-in-top-panel {
+ /*  position: absolute;
+  top: 0;
+  left: 0; */
+  /* z-index: 100; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 71rem;
+  height: 74px;
+  margin-inline: auto;
+}
+.slide-in-top-panel div:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.slide-in-top-panel-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.slide-in-top-panel-info span:first-child {
+  font-size: 12px;
+  font-weight: 600;
+}
+.slide-in-top-panel-info span:nth-child(2) {
+  font-weight: 600;
+}
+.slide-in-top-panel-info button {
+  color: white;
+  background-color: var(--clr-red);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14rem;
+  height: 2.5rem;
+  padding-inline: 1rem;
+  border-radius: 3rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.slide-in-top-panel-info svg {
+  width: 14px;
+  margin-right: 10px;
+}
+.slide-in-top-panel-info button:hover {
+  background-color: var(--clr-dark-red);
+  transform: scale(1.05,1.03);
+}
+
 
 /* HEADER */
 .header-div,
@@ -547,7 +614,6 @@ body {
   transition: all 200ms ease;
   /* visibility: visible; */
   z-index: 100;
-  transition: 200ms ease;
 }
 .log-in-side-content-div.slide-in {
   transform: translate(0); 
@@ -730,7 +796,8 @@ body {
   margin-top: 1rem;
 }
 
-.esrb-ratings {
+.esrb-ratings,
+.compatibility-info-div {
   display: flex;
   align-items: center;
   column-gap: 12px;
@@ -738,6 +805,7 @@ body {
   color: var(--clr-gray);
   font-size: 12px;
   font-weight: 300;
+  margin-top: 1rem;
 }
 .esrb-ratings-info {
   min-width: 120px;
@@ -751,6 +819,21 @@ body {
 .esrb-ratings-info div:last-child {
   padding-top: 3px;
 }
+.compatibility-info-div {
+  padding: 1rem;
+}
+.compatibility-info div {
+  line-height: 1.5;
+}
+.compatibility-info div:first-child {
+  font-weight: 600;
+}
+/* .compatibility-info-div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: ;
+} */
 /* rgb(0, 103, 214) */
 .compatibility-checkmark {
   height: 1.125rem;
@@ -781,7 +864,7 @@ body {
   display: flex;
   gap: 1.5rem;
   font-size: 0.9rem;
-  line-height: 3;
+  line-height: 3.3;
 }
 .version-div span,
 .edition-div span {

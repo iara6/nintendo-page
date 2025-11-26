@@ -117,7 +117,6 @@ overlaySidePanel.addEventListener('click', (e) => {
 /* IMAGE GALLERY SLIDER */
 
 const slidesContainer = document.querySelector('.slide-image-container');
-/* const slides = document.querySelectorAll('.slide'); */
 const slides = document.querySelectorAll('.slide-image-container span');
 const prevBtn = document.querySelector('.slide-image__prev button');
 const nextBtn = document.querySelector('.slide-image__next button');
@@ -167,11 +166,10 @@ slideOptions[0].classList.add('active');
 
 slideOptions.forEach((opt , index) => {
   opt.addEventListener('click', () => {
-    counter = index
+    counter = index;
     carousel();
   })
 });
-
 
 thumbnailPrevBtnContainer.style.display = "none";
 
@@ -183,9 +181,27 @@ thumbnailNextBtn.addEventListener('click', () => {
   thumbnailPrevBtnContainer.style.display = "block";
 });
 
-
 thumbnailPrevBtn.addEventListener('click', () => {
   slideOptionsContainer.style.transform = `translateX(0)`;
   thumbnailNextBtnContainer.style.display = "block";
   thumbnailPrevBtnContainer.style.display = "none";
+});
+
+
+/* SLIDE-IN TOP PANEL */
+
+const topPanel = document.querySelector('.slide-in-top-panel-div');
+
+window.addEventListener("scroll", () => {
+  const scrollHeight = window.pageYOffset;
+
+  console.log(scrollHeight);
+
+  if (scrollHeight > 300) {
+  
+    topPanel.classList.add("top-slide");
+  } else {
+    topPanel.classList.remove("top-slide");
+  }
+
 });
