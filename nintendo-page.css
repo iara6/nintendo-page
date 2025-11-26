@@ -729,6 +729,43 @@ body {
   gap: 3rem;
   margin-top: 1rem;
 }
+
+.esrb-ratings {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  text-decoration: none;
+  color: var(--clr-gray);
+  font-size: 12px;
+  font-weight: 300;
+}
+.esrb-ratings-info {
+  min-width: 120px;
+  max-width: 352px;
+}
+.esrb-ratings-info div:first-child {
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--clr-gray);
+}
+
+.esrb-ratings-info div:last-child {
+  padding-top: 3px;
+}
+/* rgb(0, 103, 214) */
+.compatibility-checkmark {
+  height: 1.125rem;
+  width: 1.125rem;
+  border-radius: 50%;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: #0067d6;
+}
+.compatibility-checkmark svg {
+  color: white;
+}
+
 .game-info {
   color: var(--clr-gray);
 }
@@ -1000,6 +1037,19 @@ body {
   background: var(--clr-dark-red);
   z-index: 10;
 }
+/* .slide-options__cont */div.active img {
+  opacity: 1;
+}
+/* .slide-options__cont */div.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--clr-red);
+  z-index: 10;
+}
 
 .slide-options__next,
 .slide-options__prev {
@@ -1010,6 +1060,7 @@ body {
   z-index: 10;
   /* transition: opacity 150ms linear; */
 }
+
 .slide-options__next:hover button,
 .slide-options__prev:hover button {
   background-color: rgba(0, 0, 0, 0.6);

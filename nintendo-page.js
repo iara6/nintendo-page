@@ -122,21 +122,17 @@ const slides = document.querySelectorAll('.slide-image-container span');
 const prevBtn = document.querySelector('.slide-image__prev button');
 const nextBtn = document.querySelector('.slide-image__next button');
 
+/* + thumbnail carousel slider */
+const slideOptionsWrapper= document.querySelector('.slide-options');
+const slideOptionsContainer= document.querySelector('.slide-options__cont');
+const slideOptions = document.querySelectorAll('.slide-options__cont div');
+const thumbnailPrevBtnContainer = document.querySelector('.slide-options__prev');
+const thumbnailNextBtnContainer = document.querySelector('.slide-options__next');
+const thumbnailPrevBtn = document.querySelector('.slide-options__prev button');
+const thumbnailNextBtn = document.querySelector('.slide-options__next button');
+
+
 let counter = 0;
-
-/* nextBtn.addEventListener('click', () => {
-  counter = (counter + 1) % slides.length;
-  carousel();
-});
-
-prevBtn.addEventListener('click', () => {
-  counter = (counter - 1 + slides.length) % slides.length;
-  carousel();
-});
-
-function carousel() {
-  slidesContainer.style.transform = `translateX(-${counter * 100}%)`;
-} */
 
 nextBtn.addEventListener('click', () => {
   counter++;
@@ -157,28 +153,39 @@ function carousel() {
     counter = slides.length - 1;
   }
 
-  slides.forEach((slide) => {
+  slides.forEach((slide, index) => {
     slide.style.transform = `translateX(-${counter * 100}%)`;
+    slide.classList.toggle('active', index === counter);
+  });
+
+  slideOptions.forEach((opt , index) => {
+    opt.classList.toggle('active', index === counter);
   });
 };
 
-/* thumbnail carousel slider */
+slideOptions[0].classList.add('active');
 
-const slideOptionsWrapper= document.querySelector('.slide-options');
-const slideOptionsContainer= document.querySelector('.slide-options__cont');
-const slideOptions = document.querySelectorAll('.slide-options__cont div');
-const thumbnailPrevBtn = document.querySelector('.slide-options__prev button');
-const thumbnailNextBtn = document.querySelector('.slide-options__next button');
+slideOptions.forEach((opt , index) => {
+  opt.addEventListener('click', () => {
+    counter = index
+    carousel();
+  })
+});
 
 
+thumbnailPrevBtnContainer.style.display = "none";
 
 thumbnailNextBtn.addEventListener('click', () => {
   const maxTranslateX = slideOptionsContainer.scrollWidth - slideOptionsWrapper.offsetWidth;
   
   slideOptionsContainer.style.transform = `translateX(-${maxTranslateX}px)`;
+  thumbnailNextBtnContainer.style.display = "none";
+  thumbnailPrevBtnContainer.style.display = "block";
 });
 
 
 thumbnailPrevBtn.addEventListener('click', () => {
   slideOptionsContainer.style.transform = `translateX(0)`;
+  thumbnailNextBtnContainer.style.display = "block";
+  thumbnailPrevBtnContainer.style.display = "none";
 });
