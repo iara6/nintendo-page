@@ -157,12 +157,12 @@ function carousel() {
     slide.classList.toggle('active', index === counter);
   });
 
-  slideOptions.forEach((opt , index) => {
-    opt.classList.toggle('active', index === counter);
-  });
+  translateSlideOptions()
 };
 
 slideOptions[0].classList.add('active');
+
+translateSlideOptions();
 
 slideOptions.forEach((opt , index) => {
   opt.addEventListener('click', () => {
@@ -186,6 +186,30 @@ thumbnailPrevBtn.addEventListener('click', () => {
   thumbnailNextBtnContainer.style.display = "block";
   thumbnailPrevBtnContainer.style.display = "none";
 });
+
+function calculateThumbs() {
+  const thumbWidth = slideOptions[0].offsetWidth + 20; // 90 + 20
+  const visibleThumbsNumber = Math.max(1, Math.floor(slideOptionsWrapper.clientWidth / thumbWidth)); // 5
+  const thumbStep = visibleThumbsNumber * thumbWidth;  
+  const maxTranslateX = Math.max(0, slideOptionsContainer.scrollWidth - slideOptionsWrapper.clientWidth); 
+
+  return {thumbStep, maxTranslateX, visibleThumbsNumber};
+}
+calculateThumbs();
+
+function translateSlideOptions() {
+  slideOptions.forEach((opt , index) => {
+    opt.classList.toggle('active', index === counter);
+  });
+
+  const {thumbStep, maxTranslateX, visibleThumbsNumber} = calculateThumbs();
+  const page = Math.floor(counter / visibleThumbsNumber);
+  const shift = Math.min(page * thumbStep, maxTranslateX);
+ 
+  slideOptionsContainer.style.transform = `translateX(-${shift}px)`;
+  thumbnailPrevBtnContainer.style.display = (shift === 0) ? 'none' : 'block';
+  thumbnailNextBtnContainer.style.display = (shift >= maxTranslateX) ? 'none' : 'block';
+}
 
 
 /* SLIDE-IN TOP PANEL */
