@@ -751,8 +751,10 @@ body {
 .main-game-section {
   background-color: var(--clr-blue);
   border: 1px solid red;
+ /*  margin-bottom: -2rem; */
 }
 .game-div {
+  border: 1px solid blue;
   background-color: white;
   padding: 2rem 3rem;
   max-width: 1240px;
@@ -1180,4 +1182,59 @@ body {
   font-size: 1.8rem;
   /* font-size: 2.5rem; */
   transition: all 150ms linear;
+}
+.main-game-description {
+  margin-top: 4rem;
+  padding: 3rem 0;
+}
+.main-game-description>div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  max-width: 71rem;
+  margin-inline: auto;
+}
+.main-game-description h3 {
+  font-size: 21px;
+  font-weight: 600;
+}
+.main-game-description p {
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--clr-gray);
+  margin-top: 1rem;
+}
+
+.main-game-description-img-cont img {
+  max-height: 24em;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.read-more-button {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-red);
+  border: none;
+  background-color: transparent;
+  padding: 11px 11px 11px 0;
+  cursor: pointer;
+  transition: var(--trsn--color);
+}
+.read-more-button span {
+  display: block;
+}
+.read-more-button:hover {
+  color: var(--clr-dark-red);
+}
+.read-more-button span:first-child {
+  margin-right: 8px;
+  height: 18px;
+  width: 18px;
+}
+.read-more-button svg {
+  height: 18px;
+  width: 18px;
 }

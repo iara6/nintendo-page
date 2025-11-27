@@ -162,8 +162,8 @@ function carousel() {
 
 slideOptions[0].classList.add('active');
 
-translateSlideOptions();
-
+/* translateSlideOptions();
+ */
 slideOptions.forEach((opt , index) => {
   opt.addEventListener('click', () => {
     counter = index;
@@ -188,14 +188,13 @@ thumbnailPrevBtn.addEventListener('click', () => {
 });
 
 function calculateThumbs() {
-  const thumbWidth = slideOptions[0].offsetWidth + 20; // 90 + 20
+  const thumbWidth = slideOptions[0].offsetWidth + 25; // 90 + 25
   const visibleThumbsNumber = Math.max(1, Math.floor(slideOptionsWrapper.clientWidth / thumbWidth)); // 5
   const thumbStep = visibleThumbsNumber * thumbWidth;  
   const maxTranslateX = Math.max(0, slideOptionsContainer.scrollWidth - slideOptionsWrapper.clientWidth); 
 
   return {thumbStep, maxTranslateX, visibleThumbsNumber};
 }
-calculateThumbs();
 
 function translateSlideOptions() {
   slideOptions.forEach((opt , index) => {
@@ -208,7 +207,7 @@ function translateSlideOptions() {
  
   slideOptionsContainer.style.transform = `translateX(-${shift}px)`;
   thumbnailPrevBtnContainer.style.display = (shift === 0) ? 'none' : 'block';
-  thumbnailNextBtnContainer.style.display = (shift >= maxTranslateX) ? 'none' : 'block';
+  thumbnailNextBtnContainer.style.display = (shift >= maxTranslateX) ? 'none' : 'block'; /* *** */
 }
 
 
@@ -221,7 +220,7 @@ window.addEventListener("scroll", () => {
 
   console.log(scrollHeight);
 
-  if (scrollHeight > 300) {
+  if (scrollHeight > 400) {
   
     topPanel.classList.add("top-slide");
   } else {
