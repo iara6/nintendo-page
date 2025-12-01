@@ -1180,7 +1180,6 @@ body {
 .slide-options__next button i {
   color: var(--clr-border);
   font-size: 1.8rem;
-  /* font-size: 2.5rem; */
   transition: all 150ms linear;
 }
 .main-game-description {
@@ -1299,4 +1298,65 @@ body {
 .explore-game-button:hover {
   background-color: var(--clr-dark-red);
   transform: scale(1.05,1.03);
+}
+.main-game-about {
+  max-width: 71rem;
+  margin-inline: auto;
+  color: var(--clr-gray);
+}
+.related-tags-div {
+  margin: 40px 0;
+}
+.related-tags-div h2,
+.about-this-item-div h2 {
+  font-weight: 600;
+  font-size: 28px;
+}
+.related-tags-div div {
+  display: flex;
+  gap: 1rem;
+  padding: 0 0.5rem;
+  margin-top: 1.5rem;
+}
+.related-tags-div a {
+  text-decoration: none;
+  color: var(--clr-gray);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background-color: var(--clr-light-gray);
+  transition: var(--trsn--color);
+}
+
+.related-tags-div a:hover {
+  color: var(--clr-red);
+}
+
+.about-this-item-div h2 {
+  padding: 1rem;
+}
+
+.about-item-list > div {
+  display: grid;
+  grid-template-columns: 28px 1fr 2fr;
+  column-gap: 20px;
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+
+.about-item-list > div:nth-child(odd) {
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+.play-modes-div {
+  display: flex;
+  column-gap: 1rem;
+}
+.play-modes-div div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.play-modes-text {
+  font-size: 12px;
 }
