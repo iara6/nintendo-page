@@ -218,13 +218,20 @@ const topPanel = document.querySelector('.slide-in-top-panel-div');
 window.addEventListener("scroll", () => {
   const scrollHeight = window.pageYOffset;
 
-  console.log(scrollHeight);
-
-  if (scrollHeight > 400) {
-  
+  if (scrollHeight > 420) {
     topPanel.classList.add("top-slide");
   } else {
     topPanel.classList.remove("top-slide");
   }
+});
 
+
+/* EXPANDABLE TEXT SECTION */
+
+const readMoreBtn = document.querySelector('.read-more-button');
+const gameDescription = document.querySelector('.main-game-description');
+
+readMoreBtn.addEventListener('click', () => {
+  readMoreBtn.classList.toggle('show-text');
+  gameDescription.classList.toggle('show-text');
 });

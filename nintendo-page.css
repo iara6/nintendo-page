@@ -1210,7 +1210,9 @@ body {
   width: 100%;
   border-radius: 12px;
 }
-
+.ellipsis {
+  margin: 0.2rem 0 0.5rem!important;
+}
 .read-more-button {
   display: flex;
   align-items: center;
@@ -1220,16 +1222,18 @@ body {
   border: none;
   background-color: transparent;
   padding: 11px 11px 11px 0;
+  margin-top: 0.5rem;
   cursor: pointer;
   transition: var(--trsn--color);
 }
-.read-more-button span {
+/* .read-more-button span {
   display: block;
-}
+} */
 .read-more-button:hover {
   color: var(--clr-dark-red);
 }
-.read-more-button span:first-child {
+.read-more-button .less.svg,
+.read-more-button .more.svg {
   margin-right: 8px;
   height: 18px;
   width: 18px;
@@ -1237,4 +1241,62 @@ body {
 .read-more-button svg {
   height: 18px;
   width: 18px;
+  margin-right: 8px;
+}
+
+.hidden-text {
+  display: none;
+}
+.less {
+  display: none;
+}
+
+.show-text .hidden-text {
+  display: block;
+}
+
+.show-text .ellipsis {
+  display: none;
+}
+
+.show-text .more.svg {
+  display: none;
+}
+.show-text .more {
+  display: none;
+}
+
+.show-text .less.svg {
+  display: block;
+}
+.show-text .less {
+  display: block;
+}
+
+.description-author {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--clr-gray);
+}
+
+.explore-game-button {
+  color: white;
+  background-color: var(--clr-red);
+  border: none;
+  padding: 0 1.5rem;
+  margin-top: 1rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.explore-game-button:hover {
+  background-color: var(--clr-dark-red);
+  transform: scale(1.05,1.03);
 }
