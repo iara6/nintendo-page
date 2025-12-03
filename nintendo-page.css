@@ -1311,7 +1311,8 @@ body {
   margin: 40px 0;
 }
 .related-tags-div h2,
-.about-this-item-div h2 {
+.about-this-item-div h2,
+.more-like-this h2 {
   font-weight: 600;
   font-size: 28px;
 }
@@ -1404,9 +1405,68 @@ body {
   line-height: 1.5;
 }
 
-/* .main-game-about {
+.more-like-this {
   max-width: 71rem;
   margin-inline: auto;
-  padding-bottom: 3rem;
+  padding: 3rem 0 1rem;
   color: var(--clr-gray);
-} */
+}
+
+.similar-games-slider-wrapper {
+  border: 1px solid red;
+  margin-top: 1rem;
+}
+
+.similar-games-cont>div {
+  max-width: 16.375rem;
+  border-radius: 12px;
+  border: 1px solid var(--clr-border);
+  overflow: hidden;
+}
+.similar-games-img-cont img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 1/1;
+}
+
+.similar-games-info-cont {
+  border: 1px solid green;
+  padding: 1rem;
+}
+
+.similar-games-info-cont .release {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--clr-medium-gray);
+}
+.similar-games-info-cont .price {
+  font-weight: 600;
+}
+
+.similar-games-info-cont svg {
+  width: 15px;
+  height: 15px;
+}
+.games-and-like {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.games-and-like span {
+  font-size: 12px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+.games-and-like span svg {
+  margin-right: 4px;
+}
+.games-and-like button {
+  border: none;
+  background-color: transparent;
+  color: var(--clr-red);
+}
+.games-and-like button i {
+  font-size: 1.5rem;
+}
