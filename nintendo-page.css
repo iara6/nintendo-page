@@ -1272,7 +1272,9 @@ body {
   display: block;
 }
 
-.description-author {
+.description-author,
+.play-modes-text,
+.play-online {
   font-size: 12px;
   font-weight: 300;
   color: var(--clr-gray);
@@ -1302,6 +1304,7 @@ body {
 .main-game-about {
   max-width: 71rem;
   margin-inline: auto;
+  padding-bottom: 3rem;
   color: var(--clr-gray);
 }
 .related-tags-div {
@@ -1358,5 +1361,52 @@ body {
   align-items: center;
 }
 .play-modes-text {
-  font-size: 12px;
+  margin-top: 1rem;
 }
+.nint-switch,
+.supported,
+.supported-languages,
+.release-date {
+  font-weight: 300;
+}
+.about-this-item-div a:not(.esrb-link) {
+  color: var(--clr-red);
+  font-weight: 600;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+  transition: var(--trsn--color);
+}
+.about-this-item-div a:hover:not(.esrb-link) {
+  color: var(--clr-dark-red);
+}
+.online-play {
+  display: flex;
+  gap: 1rem;
+}
+.play-online {
+  padding-top: 1rem;
+}
+.learn-more {
+  font-size: 12px;
+  text-underline-offset: 4px !important;
+}
+
+.number-of-players-div {
+  margin-top: 5rem;
+}
+
+.number-of-players-div span {
+  font-weight: 600;
+}
+.number-of-players-div div {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* .main-game-about {
+  max-width: 71rem;
+  margin-inline: auto;
+  padding-bottom: 3rem;
+  color: var(--clr-gray);
+} */
