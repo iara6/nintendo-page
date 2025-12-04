@@ -1415,25 +1415,80 @@ body {
 .similar-games-slider-wrapper {
   border: 1px solid red;
   margin-top: 1rem;
+  /* padding: 1.5rem 0; */
+  position: relative;
 }
+.similar-games__prev,
+.similar-games__next {
+  position: absolute;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 200ms linear;
+}
+
+.similar-games__prev {
+  left: 0;
+  top: 0;
+}
+.similar-games__next {
+  right: 0;
+  top: 0;
+}
+.similar-games__prev:hover,
+.similar-games__next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.similar-games__prev:hover button,
+.similar-games__next:hover button {
+  color: white;
+  transform: scale(1.15,1.15);
+}
+
+
+.similar-games__prev button,
+.similar-games__next button {
+  background-color: transparent;
+  border: none;
+  color: var(--clr-border);
+  transition: var(--trsn--color), transform 200ms linear;
+}
+.similar-games__prev button i,
+.similar-games__next button i {
+  font-size: 3.2rem;
+}
+
 
 .similar-games {
   overflow: hidden;
 }
 .similar-games-cont {
   display: flex;
-  gap: 2.3rem;
+  transition: transform 300ms ease;
+ /*  gap: 2.3rem; */
 }
 .similar-games-cont>div {
   max-width: 16.375rem;
  /*  width: 16.375rem; */
   flex: 0 0 16.375rem; 
   width: 100%;
+  margin: 1.5rem 1rem;
   border-radius: 12px;
   border: 1px solid var(--clr-border);
   overflow: hidden;
   cursor: pointer;
 }
+/* .similar-games-cont>div:first-child {
+  margin-left: 2rem;
+} */
+/* .similar-games-cont>div:last-child {
+  margin-right: 2rem;
+} */
 .similar-games-img-cont {
   /* border: 2px solid red; */
   overflow: hidden;

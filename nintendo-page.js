@@ -122,8 +122,8 @@ const prevBtn = document.querySelector('.slide-image__prev button');
 const nextBtn = document.querySelector('.slide-image__next button');
 
 /* + thumbnail carousel slider */
-const slideOptionsWrapper= document.querySelector('.slide-options');
-const slideOptionsContainer= document.querySelector('.slide-options__cont');
+const slideOptionsWrapper = document.querySelector('.slide-options');
+const slideOptionsContainer = document.querySelector('.slide-options__cont');
 const slideOptions = document.querySelectorAll('.slide-options__cont div');
 const thumbnailPrevBtnContainer = document.querySelector('.slide-options__prev');
 const thumbnailNextBtnContainer = document.querySelector('.slide-options__next');
@@ -234,4 +234,25 @@ const gameDescription = document.querySelector('.main-game-description');
 readMoreBtn.addEventListener('click', () => {
   readMoreBtn.classList.toggle('show-text');
   gameDescription.classList.toggle('show-text');
+});
+
+
+/* MORE LIKE THIS SLIDER */
+
+const similarGamesWrapper = document.querySelector('.similar-games');
+const similarGamesContainer = document.querySelector('.similar-games-cont');
+const similarGames = document.querySelectorAll('.similar-games-cont>div');
+const similarGamesPrevBtn = document.querySelector('.similar-games__prev');
+const similarGamesNextBtn = document.querySelector('.similar-games__next');
+
+let offset = 0;
+
+similarGamesNextBtn.addEventListener('click', () => {
+  offset -= 700;
+  similarGamesContainer.style.transform = `translateX(${offset}px)`;
+});
+
+similarGamesPrevBtn.addEventListener('click', () => {
+  offset += 700;
+  similarGamesContainer.style.transform = `translateX(${offset}px)`;
 });
