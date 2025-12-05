@@ -246,13 +246,42 @@ const similarGamesPrevBtn = document.querySelector('.similar-games__prev');
 const similarGamesNextBtn = document.querySelector('.similar-games__next');
 
 let offset = 0;
+similarGamesPrevBtn.style.display = "none";
 
 similarGamesNextBtn.addEventListener('click', () => {
-  offset -= 700;
+  const {translateStep, maxNegative} = calculateSimilarGamesBlocks();
+  offset = Math.max(maxNegative, offset - translateStep);
   similarGamesContainer.style.transform = `translateX(${offset}px)`;
+ 
+  similarGamesPrevBtn.style.display = "flex";
+  if (offset <= maxNegative) {
+    similarGamesNextBtn.style.display = "none";
+  }
 });
 
 similarGamesPrevBtn.addEventListener('click', () => {
-  offset += 700;
+  const {translateStep} = calculateSimilarGamesBlocks();
+  offset = Math.min(0, offset + translateStep);
   similarGamesContainer.style.transform = `translateX(${offset}px)`;
+
+  similarGamesNextBtn.style.display = "flex";
+  if (offset >= 0) {
+    similarGamesPrevBtn.style.display = "none";
+  }
 });
+
+function calculateSimilarGamesBlocks() {
+  const similarGameWidth = similarGames[0].offsetWidth + 32; //262
+  const translateStep = similarGameWidth * 3; //882
+  const maxNegative = Math.min(0, similarGamesWrapper.clientWidth - (similarGamesContainer.scrollWidth + 16));
+  return {similarGameWidth, translateStep, maxNegative};
+};
+
+/* window.addEventListener('resize', () => {
+  const {maxNegative} = calculateSimilarGamesBlocks();
+  offset = Math.max(maxNegative, Math.min(0, offset));
+  similarGamesContainer.style.transform = `translateX(${offset}px)`;
+
+  similarGamesPrevBtn.style.display = offset < 0 ? 'flex' : 'none';
+  similarGamesNextBtn.style.display = offset <= maxNegative ? 'none' : 'flex';
+}); */
