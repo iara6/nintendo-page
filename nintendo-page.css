@@ -724,7 +724,9 @@ body {
   margin-right: 8px;
 }
 
-
+main {
+  margin-bottom: 4rem;
+}
 
 .shipping-info {
   justify-content: center;
@@ -1573,4 +1575,46 @@ body {
 }
 .games-and-like button:hover i {
   color: var(--clr-dark-red);
+}
+
+.warning-section {
+  /* border: 1px solid red; */
+  max-width: 71rem;
+  margin-inline: auto;
+  padding: 3rem 0;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--clr-gray);
+}
+.warning-section p {
+  margin: 0.7rem 0;
+}
+.footer-logo-div {
+  background-color: var(--clr-red);
+  text-align: center;
+}
+
+.footer-logo-div svg {
+/*   display: flex;
+  justify-content: center; */
+  height: 130px;
+  width: 260px;
+  background-color: var(--clr-red);
+  color: white;
+  cursor: pointer;
+}
+
+.footer-nav-section {
+  padding: 2rem 1rem;
+}
+
+.footer-nav-section>div {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.footer-nav-div {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 }
