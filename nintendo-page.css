@@ -1257,14 +1257,19 @@ main {
 }
 
 .modal {
-  /* display: none; */ /* ********* */
+  display: none; /* ********* */
   position: fixed; 
   z-index: 100; 
   left: 0;
   top: 0;
   width: 100%; 
   height: 100%; 
-  overflow: auto;
+/*   height: 100vh;
+  width: 100vw; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* overflow: auto; */
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(1rem);
 }
@@ -1277,16 +1282,69 @@ body.modal-open {
   overflow: hidden;
 }
 
-.modal-container {
+.modal-container { /*  */
+/*   width: calc(100% - 14rem);
+  max-width: 1050px; */
+  width:  min(1050px, calc(100% - 14rem));
+  max-height: 90vh;
+  
+ /*  height: 90vh;       
+  max-height: 90vh; */
+  /* height: 100%; */
+  /* overflow: hidden; */
+  border: 2px solid red;
+  position: relative;
+  opacity: 0; /* *********************** */
+  visibility: hidden; /* *************** */
+  transition: all 350ms ease-in-out; /* * */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin-inline: auto; */
   /* height: fit-content; */
-  /* width: auto; */
-  width: calc(100%-14rem) !important;
+ /*  display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+.modal-container.modal-open {
+  opacity: 1;
+  visibility: visible;
+}
+.image-gallery-modal {
+   /*  display: block;
+  width: 100%; */
+  /* height: 100%; */
+   max-height: 100%;
+  /* max-height: 400px; */
+  object-fit: contain;
+  width: 100%;
+  
+  /* width: calc(100% - 14rem) !important; */
+}
+
+
+
+/* .slide-image-container-modal img {
+  height: auto;
+} */
+/* .trailer {
+  opacity: 0;
+  visibility: hidden;
+  aspect-ratio: 16/9;
+  width: min(80vw, calc(16 / 9 * 90vh)); 
+  max-height: 90vh;
+  height: auto;
+ 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: var(--transition2);
 }
-
+.trailer.modal-open  {
+  opacity: 1;
+  visibility: visible;
+} */
 
 .modal-close-button {
   /* background-color: transparent; */
@@ -1297,6 +1355,10 @@ body.modal-open {
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.25);
   transition: all 200ms linear;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 150;
 }
 
 .modal-close-button:hover {
@@ -1308,7 +1370,12 @@ body.modal-open {
   width: 24px;
   color: white;
 }
-
+.slide-options-wrapper-modal {
+  margin-bottom: 0;
+}
+.slide-options__cont-modal div {
+  border: 1px solid white;
+}
 /* aspect-ratio: 16 / 9; */
 
 .main-game-description {

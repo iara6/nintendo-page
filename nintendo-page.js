@@ -210,6 +210,16 @@ function translateSlideOptions() {
   thumbnailNextBtnContainer.style.display = (shift >= maxTranslateX) ? 'none' : 'block'; /* *** */
 }
 
+/* IMAGE GALLERY SLIDER - MODAL*/
+
+const sliderModal = document.querySelector('.modal');
+const sliderModalContainer = document.querySelector('.modal-container');
+
+slidesContainer.addEventListener('click', () => {
+  sliderModal.classList.add('open');
+  document.body.classList.add('modal-open');
+  requestAnimationFrame(() => sliderModalContainer.classList.add('modal-open'));
+});
 
 /* SLIDE-IN TOP PANEL */
 
