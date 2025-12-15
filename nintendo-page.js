@@ -210,16 +210,43 @@ function translateSlideOptions() {
   thumbnailNextBtnContainer.style.display = (shift >= maxTranslateX) ? 'none' : 'block'; /* *** */
 }
 
-/* IMAGE GALLERY SLIDER - MODAL*/
+/* IMAGE GALLERY SLIDER - MODAL */
 
 const sliderModal = document.querySelector('.modal');
 const sliderModalContainer = document.querySelector('.modal-container');
+const sliderModalCloseBtn = document.querySelector('.modal-close-button');
 
 slidesContainer.addEventListener('click', () => {
   sliderModal.classList.add('open');
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => sliderModalContainer.classList.add('modal-open'));
 });
+
+function closeSliderModal() {
+  sliderModalContainer.classList.remove('modal-open');
+  sliderModal.classList.remove('open');
+  document.body.classList.remove('modal-open');
+};
+
+sliderModalCloseBtn.addEventListener('click', closeSliderModal);
+
+sliderModal.addEventListener('click', (e) => {
+  if (e.target === sliderModal) closeSliderModal();
+});
+
+const slidesContainerMod = document.querySelector('.slide-image-container-modal');
+const slidesMod = document.querySelectorAll('.slide-image-container-modal span');
+const prevBtnMod = document.querySelector('.slide-image__prev-mod button');
+const nextBtnMod = document.querySelector('.slide-image__next-mod button');
+
+/* thumbnail carousel slider MODAL */
+const slideOptionsWrapperMod = document.querySelector('.slide-options-modal');
+const slideOptionsContainerMod = document.querySelector('.slide-options__cont-modal');
+/* const slideOptions = document.querySelectorAll('.slide-options__cont div');
+const thumbnailPrevBtnContainer = document.querySelector('.slide-options__prev');
+const thumbnailNextBtnContainer = document.querySelector('.slide-options__next');
+const thumbnailPrevBtn = document.querySelector('.slide-options__prev button');
+const thumbnailNextBtn = document.querySelector('.slide-options__next button'); */
 
 /* SLIDE-IN TOP PANEL */
 
