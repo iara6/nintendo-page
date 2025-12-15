@@ -1180,11 +1180,13 @@ main {
   border: 2px solid white;
 }
 
-.slide-options__cont div:nth-child(2):hover .play-button-small {
+.slide-options__cont div:nth-child(2):hover .play-button-small,
+.slide-options__cont-modal div:nth-child(2):hover .play-button-small {
   color: var(--clr-gray);
 }
 
-.slide-options__cont img {
+.slide-options__cont img,
+.slide-options__cont-modal img {
   width: 100%;
   display: block;
   height: 100%;
@@ -1194,15 +1196,18 @@ main {
   cursor: pointer;
 }
 
-.slide-options__cont img:hover {
+.slide-options__cont img:hover,
+.slide-options__cont-modal img:hover {
   opacity: 1;
 }
 
-.slide-options  {
+.slide-options,
+.slide-options-modal  {
   overflow: hidden;
 }
 
-.slide-options__cont div:hover::after {
+.slide-options__cont div:hover::after,
+.slide-options__cont-modal div:hover::after {
   content: '';
   position: absolute;
   left: 0;
@@ -1229,7 +1234,9 @@ main {
 }
 
 .slide-options__next,
-.slide-options__prev {
+.slide-options__prev,
+.slide-options__next-mod,
+.slide-options__prev-mod {
   position: absolute;
   top: 0;
   height: 100%;
@@ -1238,25 +1245,33 @@ main {
 }
 
 .slide-options__next:hover button,
-.slide-options__prev:hover button {
+.slide-options__prev:hover button,
+.slide-options__next-mod:hover button,
+.slide-options__prev-mod:hover button {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
 .slide-options__next:hover i,
-.slide-options__prev:hover i {
+.slide-options__prev:hover i,
+.slide-options__next-mod:hover i,
+.slide-options__prev-mod:hover i {
   transform: scale(1.2, 1.2);
 }
 
-.slide-options__prev {
+.slide-options__prev,
+.slide-options__prev-mod {
   left: 0;
 }
 
-.slide-options__next {
+.slide-options__next,
+.slide-options__next-mod {
   right: 0;
 }
 
 .slide-options__prev button,
-.slide-options__next button {
+.slide-options__next button,
+.slide-options__prev-mod button,
+.slide-options__next-mod button {
   background-color: rgba(0, 0, 0, 0.3);
   height: 100%;
   width: 100%;
@@ -1267,7 +1282,9 @@ main {
 }
 
 .slide-options__prev button i,
-.slide-options__next button i {
+.slide-options__next button i,
+.slide-options__prev-mod button i,
+.slide-options__next-mod button i {
   color: var(--clr-border);
   font-size: 1.8rem;
   transition: all 150ms linear;
@@ -1330,8 +1347,8 @@ body.modal-open {
 .image-gallery-modal {
    /*  display: block;
   width: 100%; */
-  /* height: 100%; */
-   max-height: 100%;
+  height: 100%;
+  /*  max-height: 100%; */
   /* max-height: 400px; */
   object-fit: contain;
   width: 100%;

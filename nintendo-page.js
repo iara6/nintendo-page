@@ -242,11 +242,88 @@ const nextBtnMod = document.querySelector('.slide-image__next-mod button');
 /* thumbnail carousel slider MODAL */
 const slideOptionsWrapperMod = document.querySelector('.slide-options-modal');
 const slideOptionsContainerMod = document.querySelector('.slide-options__cont-modal');
-/* const slideOptions = document.querySelectorAll('.slide-options__cont div');
-const thumbnailPrevBtnContainer = document.querySelector('.slide-options__prev');
-const thumbnailNextBtnContainer = document.querySelector('.slide-options__next');
-const thumbnailPrevBtn = document.querySelector('.slide-options__prev button');
-const thumbnailNextBtn = document.querySelector('.slide-options__next button'); */
+const slideOptionsMod = document.querySelectorAll('.slide-options__cont-modal div');
+const thumbnailPrevBtnContainerMod = document.querySelector('.slide-options__prev-mod');
+const thumbnailNextBtnContainerMod = document.querySelector('.slide-options__next-mod');
+const thumbnailPrevBtnMod = document.querySelector('.slide-options__prev-mod button');
+const thumbnailNextBtnMod = document.querySelector('.slide-options__next-mod button');
+
+let counterMod = 0;
+
+nextBtnMod.addEventListener('click', () => {
+  counterMod++;
+  carouselMod();
+});
+
+prevBtnMod.addEventListener('click', () => {
+  counterMod--;
+  carouselMod();
+});
+
+function carouselMod() {
+  if (counterMod === slidesMod.length) {
+    counterMod = 0;
+  }
+
+  if (counterMod < 0) {
+    counterMod = slidesMod.length - 1;
+  }
+
+  slidesMod.forEach((slide, index) => {
+    slide.style.transform = `translateX(-${counterMod * 100}%)`;
+    slide.classList.toggle('active', index === counterMod);
+  });
+
+  translateSlideOptionsMod()  /* ******* */
+};
+
+slideOptionsMod[0].classList.add('active');
+
+slideOptionsMod.forEach((opt , index) => {
+  opt.addEventListener('click', () => {
+    counterMod = index;
+    carouselMod();
+  })
+});
+
+thumbnailPrevBtnContainerMod.style.display = "none";
+
+thumbnailNextBtnMod.addEventListener('click', () => {
+  const maxTranslateXmod = slideOptionsContainer.scrollWidth - slideOptionsWrapperMod.offsetWidth; /* **************** */
+  
+  slideOptionsContainerMod.style.transform = `translateX(-${maxTranslateXmod}px)`;
+  thumbnailNextBtnContainerMod.style.display = "none";
+  thumbnailPrevBtnContainerMod.style.display = "block";
+});
+
+thumbnailPrevBtnMod.addEventListener('click', () => {
+  slideOptionsContainerMod.style.transform = `translateX(0)`;
+  thumbnailNextBtnContainerMod.style.display = "block";
+  thumbnailPrevBtnContainerMod.style.display = "none";
+});
+
+function calculateThumbsMod() {
+  const thumbWidthMod = slideOptionsMod[0].offsetWidth + 25; // 90 + 25
+  const visibleThumbsNumberMod = Math.max(1, Math.floor(slideOptionsWrapperMod.clientWidth / thumbWidthMod)); // 5
+  const thumbStepMod = visibleThumbsNumberMod * thumbWidthMod;  
+  const maxTranslateXmod = Math.max(0, slideOptionsContainerMod.scrollWidth - slideOptionsWrapperMod.clientWidth); 
+
+  return {thumbStepMod, maxTranslateXmod, visibleThumbsNumberMod};
+}
+
+function translateSlideOptionsMod() {
+  slideOptionsMod.forEach((opt , index) => {
+    opt.classList.toggle('active', index === counterMod);
+  });
+
+  const {thumbStepMod, maxTranslateXmod, visibleThumbsNumberMod} = calculateThumbsMod();
+  const pageMod = Math.floor(counterMod / visibleThumbsNumberMod);
+  const shiftMod = Math.min(pageMod * thumbStepMod, maxTranslateXmod);
+ 
+  slideOptionsContainerMod.style.transform = `translateX(-${shiftMod}px)`;
+  thumbnailPrevBtnContainerMod.style.display = (shiftMod === 0) ? 'none' : 'block';
+  thumbnailNextBtnContainerMod.style.display = (shiftMod >= maxTranslateXmod) ? 'none' : 'block'; /* *** */
+}
 
 /* SLIDE-IN TOP PANEL */
 
