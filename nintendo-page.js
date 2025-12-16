@@ -130,7 +130,6 @@ const thumbnailNextBtnContainer = document.querySelector('.slide-options__next')
 const thumbnailPrevBtn = document.querySelector('.slide-options__prev button');
 const thumbnailNextBtn = document.querySelector('.slide-options__next button');
 
-
 let counter = 0;
 
 nextBtn.addEventListener('click', () => {
@@ -220,6 +219,11 @@ slidesContainer.addEventListener('click', () => {
   sliderModal.classList.add('open');
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => sliderModalContainer.classList.add('modal-open'));
+
+   requestAnimationFrame(() => {
+      calculateThumbsMod();
+      translateSlideOptionsMod();
+    });
 });
 
 function closeSliderModal() {
@@ -248,6 +252,11 @@ const thumbnailNextBtnContainerMod = document.querySelector('.slide-options__nex
 const thumbnailPrevBtnMod = document.querySelector('.slide-options__prev-mod button');
 const thumbnailNextBtnMod = document.querySelector('.slide-options__next-mod button');
 
+
+console.log(slideOptionsMod[0].offsetWidth);
+console.log('slideOptionsMod[0].offsetWidth');
+
+
 let counterMod = 0;
 
 nextBtnMod.addEventListener('click', () => {
@@ -274,7 +283,7 @@ function carouselMod() {
     slide.classList.toggle('active', index === counterMod);
   });
 
-  translateSlideOptionsMod()  /* ******* */
+  translateSlideOptionsMod()
 };
 
 slideOptionsMod[0].classList.add('active');
@@ -289,8 +298,7 @@ slideOptionsMod.forEach((opt , index) => {
 thumbnailPrevBtnContainerMod.style.display = "none";
 
 thumbnailNextBtnMod.addEventListener('click', () => {
-  const maxTranslateXmod = slideOptionsContainer.scrollWidth - slideOptionsWrapperMod.offsetWidth; /* **************** */
-  
+  const maxTranslateXmod = slideOptionsContainerMod.scrollWidth - slideOptionsWrapperMod.offsetWidth;
   slideOptionsContainerMod.style.transform = `translateX(-${maxTranslateXmod}px)`;
   thumbnailNextBtnContainerMod.style.display = "none";
   thumbnailPrevBtnContainerMod.style.display = "block";
@@ -303,13 +311,14 @@ thumbnailPrevBtnMod.addEventListener('click', () => {
 });
 
 function calculateThumbsMod() {
-  const thumbWidthMod = slideOptionsMod[0].offsetWidth + 25; // 90 + 25
-  const visibleThumbsNumberMod = Math.max(1, Math.floor(slideOptionsWrapperMod.clientWidth / thumbWidthMod)); // 5
+  const thumbWidthMod = slideOptionsMod[0].offsetWidth + 30;
+  const visibleThumbsNumberMod = Math.max(1, Math.floor(slideOptionsWrapperMod.clientWidth / thumbWidthMod));
   const thumbStepMod = visibleThumbsNumberMod * thumbWidthMod;  
   const maxTranslateXmod = Math.max(0, slideOptionsContainerMod.scrollWidth - slideOptionsWrapperMod.clientWidth); 
 
   return {thumbStepMod, maxTranslateXmod, visibleThumbsNumberMod};
 }
+/* calculateThumbsMod(); */
 
 function translateSlideOptionsMod() {
   slideOptionsMod.forEach((opt , index) => {

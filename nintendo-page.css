@@ -1379,6 +1379,15 @@ body.modal-open {
   display: block;
 }
 
+.play-button-modal {
+  transition: all 150ms ease-in;
+  cursor: pointer;
+}
+
+.play-button-modal:hover {
+  color: var(--clr-gray);
+  transform: translate(-50%, -50%) scale(1.1);
+}
 
 /* .slide-image-container-modal img {
   height: auto;
