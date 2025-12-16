@@ -220,16 +220,20 @@ slidesContainer.addEventListener('click', () => {
   document.body.classList.add('modal-open');
   requestAnimationFrame(() => sliderModalContainer.classList.add('modal-open'));
 
-   requestAnimationFrame(() => {
-      calculateThumbsMod();
-      translateSlideOptionsMod();
-    });
+  requestAnimationFrame(() => {
+    calculateThumbsMod();
+    translateSlideOptionsMod();
+    carousel();
+    carouselMod();
+  });
 });
 
 function closeSliderModal() {
   sliderModalContainer.classList.remove('modal-open');
   sliderModal.classList.remove('open');
   document.body.classList.remove('modal-open');
+
+  carousel();
 };
 
 sliderModalCloseBtn.addEventListener('click', closeSliderModal);
@@ -257,30 +261,28 @@ console.log(slideOptionsMod[0].offsetWidth);
 console.log('slideOptionsMod[0].offsetWidth');
 
 
-let counterMod = 0;
-
 nextBtnMod.addEventListener('click', () => {
-  counterMod++;
+  counter++;
   carouselMod();
 });
 
 prevBtnMod.addEventListener('click', () => {
-  counterMod--;
+  counter--;
   carouselMod();
 });
 
 function carouselMod() {
-  if (counterMod === slidesMod.length) {
-    counterMod = 0;
+  if (counter === slidesMod.length) {
+    counter = 0;
   }
 
-  if (counterMod < 0) {
-    counterMod = slidesMod.length - 1;
+  if (counter < 0) {
+    counter = slidesMod.length - 1;
   }
 
   slidesMod.forEach((slide, index) => {
-    slide.style.transform = `translateX(-${counterMod * 100}%)`;
-    slide.classList.toggle('active', index === counterMod);
+    slide.style.transform = `translateX(-${counter * 100}%)`;
+    slide.classList.toggle('active', index === counter);
   });
 
   translateSlideOptionsMod()
@@ -290,7 +292,7 @@ slideOptionsMod[0].classList.add('active');
 
 slideOptionsMod.forEach((opt , index) => {
   opt.addEventListener('click', () => {
-    counterMod = index;
+    counter = index;
     carouselMod();
   })
 });
@@ -322,11 +324,11 @@ function calculateThumbsMod() {
 
 function translateSlideOptionsMod() {
   slideOptionsMod.forEach((opt , index) => {
-    opt.classList.toggle('active', index === counterMod);
+    opt.classList.toggle('active', index === counter);
   });
 
   const {thumbStepMod, maxTranslateXmod, visibleThumbsNumberMod} = calculateThumbsMod();
-  const pageMod = Math.floor(counterMod / visibleThumbsNumberMod);
+  const pageMod = Math.floor(counter / visibleThumbsNumberMod);
   const shiftMod = Math.min(pageMod * thumbStepMod, maxTranslateXmod);
  
   slideOptionsContainerMod.style.transform = `translateX(-${shiftMod}px)`;

@@ -837,14 +837,14 @@ main {
 
 .main-game-section {
   background-color: var(--clr-light-blue);
-  border: 1px solid red;
+  height: 670px;
 }
 
 .game-div {
-  border: 1px solid blue;
   background-color: white;
   padding: 2rem 3rem;
   max-width: 1240px;
+ /*  min-height: 700px; */
   margin-inline: auto;
   border-radius: 12px;
   margin-top: 2rem;
