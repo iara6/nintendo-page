@@ -844,7 +844,6 @@ main {
   background-color: white;
   padding: 2rem 3rem;
   max-width: 1240px;
- /*  min-height: 700px; */
   margin-inline: auto;
   border-radius: 12px;
   margin-top: 2rem;
@@ -1137,13 +1136,25 @@ main {
   transition: all 200ms ease-in-out;
 }
 
+.slide-options__cont > div {
+  flex: 0 0 calc((100% - (6px * 5)) / 7); 
+}
+
 .slide-options__cont > div,
 .slide-options__cont-modal > div {
   position: relative;
-  flex: 0 0 calc((100% - (6px * 5)) / 7); 
   border-radius: 10px;
   overflow: hidden;
   transition: transform 200ms linear;
+}
+
+.slide-options__cont-modal > div {
+  flex: 0 0 calc(100% / 7); 
+  border: 1px solid rgb(255, 255, 255, 0.8);
+}
+
+.slide-options__cont-modal div:hover {
+  border: 1px solid white;
 }
 
 .slide-options__cont > div:first-child,
@@ -1291,19 +1302,13 @@ main {
 }
 
 .modal {
-  display: none; /* ********* */
+  display: none;
   position: fixed; 
   z-index: 100; 
   left: 0;
   top: 0;
   width: 100%; 
   height: 100%; 
-/*   height: 100vh;
-  width: 100vw; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* overflow: auto; */
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(1rem);
 }
@@ -1316,54 +1321,41 @@ body.modal-open {
   overflow: hidden;
 }
 
-.modal-container { /*  */
-/*   width: calc(100% - 14rem);
-  max-width: 1050px; */
-  width:  min(1050px, calc(100% - 14rem));
-  max-height: 90vh;
-  
- /*  height: 90vh;       
-  max-height: 90vh; */
-  /* height: 100%; */
-  /* overflow: hidden; */
-  border: 2px solid red;
+.modal-container { 
+  aspect-ratio: 16/10.5;
+  width: min(80vw, calc(16 / 10.5 * 80vh)); 
+  max-height: 80vh;
+  height: auto;
+
   position: relative;
-  opacity: 0; /* *********************** */
-  visibility: hidden; /* *************** */
-  transition: all 350ms ease-in-out; /* * */
+  opacity: 0; 
+  visibility: hidden;
+  transition: all 350ms ease-in-out; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* margin-inline: auto; */
-  /* height: fit-content; */
- /*  display: flex;
-  align-items: center;
-  justify-content: center; */
 }
+
 .modal-container.modal-open {
   opacity: 1;
   visibility: visible;
 }
+
 .image-gallery-modal {
-   /*  display: block;
-  width: 100%; */
   height: 100%;
-  /*  max-height: 100%; */
-  /* max-height: 400px; */
   object-fit: contain;
   width: 100%;
-  
-  /* width: calc(100% - 14rem) !important; */
 }
 
 .slide-image-container-modal {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
   border-radius: 12px;
   display: flex;
   overflow: hidden;
   gap: 0;
   padding: 0;
 }
+
 .slide-image-container-modal span {
   flex: 0 0 100%; 
   transition: all 500ms ease-in-out;
@@ -1389,30 +1381,7 @@ body.modal-open {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* .slide-image-container-modal img {
-  height: auto;
-} */
-/* .tr {
-  opacity: 0;
-  visibility: hidden;
-  aspect-ratio: 16/9;
-  width: min(80vw, calc(16 / 9 * 90vh)); 
-  max-height: 90vh;
-  height: auto;
- 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: var(--transition2);
-}
-.tr.modal-open  {
-  opacity: 1;
-  visibility: visible;
-} */
-
 .modal-close-button {
-  /* background-color: transparent; */
   cursor: pointer;
   border: none;
   height: 3rem;
@@ -1435,13 +1404,10 @@ body.modal-open {
   width: 24px;
   color: white;
 }
+
 .slide-options-wrapper-modal {
   margin-bottom: 0;
 }
-.slide-options__cont-modal div {
-  border: 1px solid white;
-}
-/* aspect-ratio: 16 / 9; */
 
 .main-game-description {
   margin-top: 4rem;
