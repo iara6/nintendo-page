@@ -1610,6 +1610,9 @@ body.modal-open {
 .release-date {
   font-weight: 300;
 }
+.nint-switch span:first-child {
+  margin-right: 0.8rem;
+}
 
 .about-this-item-div a:not(.esrb-link) {
   color: var(--clr-red);
@@ -2007,4 +2010,24 @@ path.cls-3 {
 .copyright-nav-location-div div:last-child span {
   border: 1px solid white;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 1440px) {
+  .search-topics-products {
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto;
+  }
+  .trending-topics-div {
+    margin-top: 1rem;
+  }
+  .top-store-products {
+    margin-top: 1.5rem
+  }
+  .footer-nav-div {
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 0;
+  }
+  .footer-nav-div div:first-child {
+    border-left: 1px solid var(--clr-border);
+  } 
 }

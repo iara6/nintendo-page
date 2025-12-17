@@ -256,11 +256,6 @@ const thumbnailNextBtnContainerMod = document.querySelector('.slide-options__nex
 const thumbnailPrevBtnMod = document.querySelector('.slide-options__prev-mod button');
 const thumbnailNextBtnMod = document.querySelector('.slide-options__next-mod button');
 
-
-console.log(slideOptionsMod[0].offsetWidth);
-console.log('slideOptionsMod[0].offsetWidth');
-
-
 nextBtnMod.addEventListener('click', () => {
   counter++;
   carouselMod();
