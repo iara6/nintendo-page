@@ -103,8 +103,7 @@ body {
 .header-buttons,
 .search button,
 .log-in-button,
-.shipping-info,
-.shipping-info span {
+.shipping-info {
   display: flex;
   align-items: center;
 }
@@ -122,6 +121,10 @@ body {
   background-color: var(--clr-red);
   color: white;
   cursor: pointer;
+}
+.my-nintendo-store-link {
+  display: none;
+  color: white;
 }
 
 .header-buttons {
@@ -811,6 +814,13 @@ main {
 .shipping-info {
   justify-content: center;
   padding: 0.7rem 0;
+}
+
+.shipping-info span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .shipping-info span:first-child {
@@ -2076,5 +2086,61 @@ path.cls-3 {
   }
   .explore-characters div:last-child {
     justify-content: left;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header-div {
+    background-color: var(--clr-red);
+  }
+  .logo {
+    height: 46px;
+  }
+  .logo svg {
+    width: 89px;
+  }
+  .header-buttons,
+  .search,
+  .wish-list,
+  .cart,
+  .log-in-button {
+    display: none;
+  }
+  .region {
+    border: 1px solid white;
+    border-radius: 4px;
+    display: flex;
+  }
+  .my-nintendo-store-link {
+    display: flex;
+  }
+  .shipping-info span:first-child {
+    border: none;
+  }
+  .shipping-info span:last-child {
+    display: none;
+  }
+  .related-tags-div div {
+    gap: 8px;
+    padding: 0;
+  }
+  .related-tags-div a {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+  .footer-nav-div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-socials-section {
+    flex-direction: column;
+    gap: 3rem;
+  } 
+  .copyright-section>div {
+    flex-direction: column;
+  }
+  .copyright-text {
+    max-width: 450px;
+    text-align: center;
+    font-size: 10px;
   }
 }
