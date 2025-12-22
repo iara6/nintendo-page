@@ -1030,7 +1030,7 @@ main {
 
 .item-info {
   font-size: 12px;
-  line-height: 4;
+  margin-top: 1rem;
 }
 
 .image-gallery:hover .slide-image__prev,
@@ -1983,6 +1983,7 @@ path.cls-3 {
 
 .copyright-nav-location-div {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -2120,6 +2121,11 @@ path.cls-3 {
   .shipping-info span:last-child {
     display: none;
   }
+  .version-div,
+  .edition-div {
+    font-size: 12px;
+    line-height: 3.6;
+  }
   .related-tags-div div {
     gap: 8px;
     padding: 0;
@@ -2135,6 +2141,9 @@ path.cls-3 {
     flex-direction: column;
     gap: 3rem;
   } 
+  .copyright-section {
+    padding-bottom: 10rem;
+  }
   .copyright-section>div {
     flex-direction: column;
   }
@@ -2143,4 +2152,10 @@ path.cls-3 {
     text-align: center;
     font-size: 10px;
   }
+  .copyright-nav-location-div a {
+    font-size: 10px;
+  }
+   .copyright-nav-location-div div:last-child {
+    display: none;
+   }
 }
