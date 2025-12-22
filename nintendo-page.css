@@ -2026,7 +2026,116 @@ path.cls-3 {
   border: 1px solid white;
   border-radius: 4px;
 }
+.fixed-navigation-block-wrapper {
+  /* display: none; */
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  /* background-color: #085ea9; */
+  width: 100%;
+  height: 74px;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+}
 
+.fixed-navigation-block-container {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 100px;
+  /* padding-inline: 1rem; */
+  margin-inline: auto;
+  height: 58px;
+  max-width: 440px;
+  width: 96%;
+  z-index: 60;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  
+  /* border: 1px solid red; */
+}
+
+.fixed-navigation-buttons-div {
+  display: flex;
+  height: 100%;
+  padding-inline: 1rem;
+  border-bottom-left-radius: 1.7rem;
+  border-bottom-right-radius: 1.7rem;
+  background-color: white;
+  border: 1px solid red;
+}
+.fixed-navigation-buttons-div button:not(.magnifying-glass-button) {
+  flex: auto;
+  border: none;
+  background-color: transparent;
+}
+.fixed-navigation-buttons-div button,
+.fixed-navigation-buttons-div a {
+  color: var(--clr-gray);
+  transition: var(--trsn--color);
+  cursor: pointer;
+}
+.fixed-navigation-buttons-div button:not(.magnifying-glass-button):hover,
+.fixed-navigation-buttons-div button:hover a {
+  color: var(--clr-red);
+}
+
+.magnifying-glass-button {
+  background-color: var(--clr-red);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-top: -0.5rem;
+}
+.magnifying-glass-button svg {
+  color: white;
+}
+.slide-in-top-panel-fixed {
+  position: absolute;
+  left: 0;
+  bottom: 29px;
+  height: 110px;
+  width: 100%;
+  padding: 1rem 1rem 0;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background-color: var(--clr-light-gray);
+  /* background-color: var(--clr-light-blue); */
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: -1;
+}
+.slide-in-top-panel-fixed div {
+  display: flex;
+  flex-direction: column;
+}
+.slide-in-top-panel-fixed button {
+  color: white;
+  background-color: var(--clr-red);
+  border: none;
+  min-width: 225px;
+  width: 225px;
+  height: 2.5rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.slide-in-top-panel-fixed button svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+}
 @media screen and (max-width: 1440px) {
   .search-topics-products {
     grid-template-columns: 1fr; 
@@ -2155,7 +2264,8 @@ path.cls-3 {
   .copyright-nav-location-div a {
     font-size: 10px;
   }
-   .copyright-nav-location-div div:last-child {
+   .copyright-nav-location-div div:last-child,
+   .slide-in-top-panel-div {
     display: none;
    }
 }
