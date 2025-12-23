@@ -397,6 +397,20 @@ function calculateSimilarGamesBlocks() {
   return {similarGameWidth, translateStep, maxNegative};
 };
 
+/* SLIDE-IN TOP PANEL FIXED */
+
+const topPanelFixed = document.querySelector('.slide-in-top-panel-fixed');
+
+window.addEventListener("scroll", () => {
+  const scrollHeight = window.pageYOffset;
+
+  if (scrollHeight > 420) {
+    topPanelFixed.classList.add("top-slide");
+  } else {
+    topPanelFixed.classList.remove("top-slide");
+  }
+});
+
 /* window.addEventListener('resize', () => {
   const {maxNegative} = calculateSimilarGamesBlocks();
   offset = Math.max(maxNegative, Math.min(0, offset));
@@ -405,3 +419,4 @@ function calculateSimilarGamesBlocks() {
   similarGamesPrevBtn.style.display = offset < 0 ? 'flex' : 'none';
   similarGamesNextBtn.style.display = offset <= maxNegative ? 'none' : 'flex';
 }); */
+
