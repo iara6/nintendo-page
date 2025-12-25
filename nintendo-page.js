@@ -411,6 +411,35 @@ window.addEventListener("scroll", () => {
   }
 });
 
+/* fixed navigation block - hamburger menu button */
+
+const hamburgerBtn = document.querySelector('.hamburger-menu-button');
+const navFixed = document.querySelector('.slide-in-nav-fixed');
+const closeFixedBtn = document.querySelector('.close-fixed-button');
+const modalOverlayFixed = document.querySelector('.modal-overlay-fixed');
+
+hamburgerBtn.addEventListener('click', () => {
+  hamburgerBtn.classList.toggle('is-open');
+  navFixed.classList.toggle('is-open');
+  modalOverlayFixed.classList.toggle('open-modal');
+  document.body.classList.toggle('modal-open');
+});
+
+function closeFixedNav() {
+  hamburgerBtn.classList.remove('is-open');
+  navFixed.classList.remove('is-open');
+  modalOverlayFixed.classList.remove('open-modal');
+  document.body.classList.remove('modal-open');
+}
+
+closeFixedBtn.addEventListener('click', closeFixedNav);
+
+modalOverlayFixed.addEventListener('click', (e) => {
+  if (e.target === modalOverlayFixed) closeFixedNav();
+});
+
+
+
 /* window.addEventListener('resize', () => {
   const {maxNegative} = calculateSimilarGamesBlocks();
   offset = Math.max(maxNegative, Math.min(0, offset));
