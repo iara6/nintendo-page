@@ -438,6 +438,25 @@ modalOverlayFixed.addEventListener('click', (e) => {
   if (e.target === modalOverlayFixed) closeFixedNav();
 });
 
+/* fixed navigation block - hamburger menu button */
+/* TABS */
+
+const navTabsBtns = document.querySelectorAll('.nav-fixed__tabs button');
+const tabsContent = document.querySelectorAll('.fixed__options-container-content');
+const navTabsContainer = document.querySelector('.slide-in-nav-fixed__options-container');
+
+navTabsContainer.addEventListener('click', (e) => {
+  const id = e.target.dataset.id;
+  
+  if (id) {
+    navTabsBtns.forEach((btn) => {
+      btn.classList.remove('active');
+      e.target.classList.add('active');
+    })
+  }
+  
+});
+
 
 
 /* window.addEventListener('resize', () => {
