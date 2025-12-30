@@ -452,9 +452,15 @@ navTabsContainer.addEventListener('click', (e) => {
     navTabsBtns.forEach((btn) => {
       btn.classList.remove('active');
       e.target.classList.add('active');
-    })
+    });
+
+    tabsContent.forEach((item) => {
+      item.classList.remove('active');
+    });
+
+    const element = document.getElementById(id);
+    element.classList.add('active');
   }
-  
 });
 
 

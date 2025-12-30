@@ -2215,11 +2215,8 @@ path.cls-3 {
   width: 100%;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  background-color: lightblue;
-
-  /* transform: translateY(100%);  */
+  background-color: white;
   opacity: 0;
-  /* transition: transform 250ms ease-out, opacity 200ms ease-out; */
   transition: height 250ms 100ms ease-out, opacity 300ms 100ms ease-out;
 }
 
@@ -2293,10 +2290,11 @@ path.cls-3 {
 
 .nav-fixed__tabs button svg {
   color: var(--clr-red);
+  pointer-events: none;
 }
 .fixed__options-container-content {
   display: none; /* **************** */
-  padding: 1.5rem 1rem 8rem;
+  padding: 1.5rem 1rem 7rem;
 }
 
 .fixed__options-container-content.active {
@@ -2306,12 +2304,16 @@ path.cls-3 {
 .fixed__options-container-content .title-2-fixed {
   margin: 30px 0 1rem;
 }
-.explore-options-fixed {
+.explore-options-fixed,
+.shop-options-fixed,
+.support-options-fixed {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.explore-options-fixed a {
+.explore-options-fixed a,
+.shop-options-fixed a,
+.support-options-fixed a {
   padding: 1rem 1.5rem;
   border: 1px solid var(--clr-border);
   border-radius: 8px;
@@ -2325,20 +2327,28 @@ path.cls-3 {
   align-items: center;
 }
 
-.explore-options-fixed a:hover:not(a:first-child ) {
+.explore-options-fixed a:hover:not(a:first-child),
+.shop-options-fixed a:hover:not(a:first-child),
+.support-options-fixed a:hover:not(a:first-child) {
   color: var(--clr-red);
 }
 
-.explore-options-fixed a:first-child {
+.explore-options-fixed a:first-child,
+.shop-options-fixed a:first-child,
+.support-options-fixed a:first-child {
   background-color: var(--clr-red);
   color: white;
 }
-.explore-options-fixed svg {
+.explore-options-fixed svg,
+.shop-options-fixed svg,
+.support-options-fixed svg {
   margin-right: 1rem;
   width: 24px;
   color: var(--clr-red);
 }
-.explore-options-fixed a:first-child svg {
+.explore-options-fixed a:first-child svg,
+.shop-options-fixed a:first-child svg,
+.support-options-fixed a:first-child svg {
   color: white;
 }
 .meet-the-characters-fixed {
