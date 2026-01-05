@@ -62,17 +62,28 @@ headerDiv.addEventListener('click', (e) => {
 
 
 /* HEADER SEARCH DROPDOWN MENU */
-
-searchBtn.addEventListener('click', () => {
+function openSearchContainer(isFixed = false) {
   if (dropContentSearchContainer.classList.contains('open-drop')) {
     closeSearchDropdown();
     return;
   }
  
   dropdownSearchContent.style.display = "block";
+  dropContentSearchContainer.classList.toggle('fixed', isFixed);
   dropContentSearchContainer.classList.add('open-drop');
-  dropContentSearchContainer.style.maxHeight = dropContentSearchContainer.scrollHeight + 'px';
+   if (!isFixed) {
+    dropContentSearchContainer.style.maxHeight =
+      dropContentSearchContainer.scrollHeight + 'px';
+  } else {
+    dropContentSearchContainer.style.maxHeight = '';
+  }
+  /* dropContentSearchContainer.style.maxHeight = dropContentSearchContainer.scrollHeight + 'px'; */
   overlaySearch.classList.add('open-modal');
+};
+
+/* searchBtn.addEventListener('click', openSearchContainer); */
+searchBtn.addEventListener('click', () => {
+  openSearchContainer(false);
 });
 
 function closeSearchDropdown() {
@@ -463,6 +474,13 @@ navTabsContainer.addEventListener('click', (e) => {
   }
 });
 
+/* fixed navigation block - magnifying glass button - search*/
+
+const searchBtnFixed = document.querySelector('.magnifying-glass-button');
+
+searchBtnFixed.addEventListener('click', () => {
+  openSearchContainer(true);
+});
 
 
 /* window.addEventListener('resize', () => {
