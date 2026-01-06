@@ -446,8 +446,34 @@ function closeFixedNav() {
 closeFixedBtn.addEventListener('click', closeFixedNav);
 
 modalOverlayFixed.addEventListener('click', (e) => {
-  if (e.target === modalOverlayFixed) closeFixedNav();
+  if (e.target === modalOverlayFixed) {
+    closeFixedNav();
+    closeFixedNavAcc();
+  } 
 });
+
+/* fixed navigation block - account button */
+
+const accountBtn = document.querySelector('.account-button');
+const logFixed = document.querySelector('.slide-in-log-in-fixed');
+const closeFixedBtn2 = document.querySelector('.close-fixed-button2');
+/* const modalOverlayFixed = document.querySelector('.modal-overlay-fixed'); */
+
+accountBtn.addEventListener('click', () => {
+  accountBtn.classList.toggle('is-open');
+  logFixed.classList.toggle('is-open');
+  modalOverlayFixed.classList.toggle('open-modal');
+  document.body.classList.toggle('modal-open');
+});
+
+function closeFixedNavAcc() {
+  accountBtn.classList.remove('is-open');
+  logFixed.classList.remove('is-open');
+  modalOverlayFixed.classList.remove('open-modal');
+  document.body.classList.remove('modal-open');
+}
+
+closeFixedBtn2.addEventListener('click', closeFixedNavAcc);
 
 /* fixed navigation block - hamburger menu button */
 /* TABS */

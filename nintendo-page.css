@@ -2114,17 +2114,21 @@ path.cls-3 {
   display: flex;
   align-items: center;
 } */
-.hamburger-menu-button i {
+.hamburger-menu-button i,
+.account-button i {
   font-size: 1.5rem;
 }
-.hamburger-menu-button .close-icon {
+.hamburger-menu-button .close-icon,
+.account-button .close-icon {
   display: none;
 }
-.hamburger-menu-button.is-open .hamburger-icon {
+.hamburger-menu-button.is-open .hamburger-icon,
+.account-button.is-open .account-icon {
   display: none;
 }
 
-.hamburger-menu-button.is-open .close-icon {
+.hamburger-menu-button.is-open .close-icon,
+.account-button.is-open .close-icon {
   display: block;
 }
 
@@ -2252,12 +2256,14 @@ path.cls-3 {
 .slide-in-nav-fixed>div:first-child a svg {
   display: block;
 }
-.slide-in-nav-fixed .close-fixed-button {
+.slide-in-nav-fixed .close-fixed-button,
+.slide-in-log-in-fixed .close-fixed-button2 {
   position: absolute;
   right: 1rem;
   cursor: pointer;
 }
-.slide-in-nav-fixed .close-fixed-button i {
+.slide-in-nav-fixed .close-fixed-button i,
+.slide-in-log-in-fixed .close-fixed-button2 i {
   color: white;
   font-size: 1.5rem;
 }
@@ -2383,6 +2389,37 @@ path.cls-3 {
   height: 32px;
   width: 32px;
   margin-right: 7px;
+}
+.log-in-side-content-div-fixed {
+/*   height: calc(100svh - 6.5rem);
+  overflow-x: scroll; */
+  padding-bottom: 2rem;
+}
+.log-in-side-content-div-fixed h2 {
+  text-align: center;
+  font-size: 21px;
+  font-weight: 600;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--clr-border);
+}
+.log-in-side-content-div-fixed .log-in-side-info {
+  padding: 1rem 2.5rem;
+}
+.log-in-side-content-div-fixed .log-in-side-buttons {
+  padding-inline: 1rem;
+}
+
+.log-in-side-content-div-fixed>div:first-child {
+  text-align: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 4rem;
+  position: relative;
+}
+
+.slide-in-log-in-fixed__options-container {
+  height: calc(100svh - 6.5rem);
+  overflow-x: scroll;
 }
 
 @media screen and (max-width: 1440px) {
