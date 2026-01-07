@@ -77,11 +77,9 @@ function openSearchContainer(isFixed = false) {
   } else {
     dropContentSearchContainer.style.maxHeight = '';
   }
-  /* dropContentSearchContainer.style.maxHeight = dropContentSearchContainer.scrollHeight + 'px'; */
   overlaySearch.classList.add('open-modal');
 };
 
-/* searchBtn.addEventListener('click', openSearchContainer); */
 searchBtn.addEventListener('click', () => {
   openSearchContainer(false);
 });
@@ -172,8 +170,6 @@ function carousel() {
 
 slideOptions[0].classList.add('active');
 
-/* translateSlideOptions();
- */
 slideOptions.forEach((opt , index) => {
   opt.addEventListener('click', () => {
     counter = index;
@@ -326,7 +322,6 @@ function calculateThumbsMod() {
 
   return {thumbStepMod, maxTranslateXmod, visibleThumbsNumberMod};
 }
-/* calculateThumbsMod(); */
 
 function translateSlideOptionsMod() {
   slideOptionsMod.forEach((opt , index) => {
@@ -429,27 +424,48 @@ const navFixed = document.querySelector('.slide-in-nav-fixed');
 const closeFixedBtn = document.querySelector('.close-fixed-button');
 const modalOverlayFixed = document.querySelector('.modal-overlay-fixed');
 
+function openModalOverlay() {
+  modalOverlayFixed.classList.add('open-modal');
+  document.body.classList.add('modal-open');
+}
+
+function closeModalOverlay() {
+  modalOverlayFixed.classList.remove('open-modal');
+  document.body.classList.remove('modal-open');
+}
+
+function isNavOpen() {
+  return navFixed.classList.contains('is-open');
+}
+
 hamburgerBtn.addEventListener('click', () => {
-  hamburgerBtn.classList.toggle('is-open');
-  navFixed.classList.toggle('is-open');
-  modalOverlayFixed.classList.toggle('open-modal');
-  document.body.classList.toggle('modal-open');
+  if (isNavOpen()) {
+    closeFixedNav();
+    closeModalOverlay();
+    return;
+  }
+
+  closeFixedNavAcc();
+  hamburgerBtn.classList.add('is-open');
+  navFixed.classList.add('is-open');
+  openModalOverlay();
 });
 
 function closeFixedNav() {
   hamburgerBtn.classList.remove('is-open');
   navFixed.classList.remove('is-open');
-  modalOverlayFixed.classList.remove('open-modal');
-  document.body.classList.remove('modal-open');
 }
 
-closeFixedBtn.addEventListener('click', closeFixedNav);
+closeFixedBtn.addEventListener('click', () => {
+  closeFixedNav();
+  closeModalOverlay();
+});
 
 modalOverlayFixed.addEventListener('click', (e) => {
-  if (e.target === modalOverlayFixed) {
-    closeFixedNav();
-    closeFixedNavAcc();
-  } 
+  if (e.target !== modalOverlayFixed) return;
+  closeFixedNav();
+  closeFixedNavAcc();
+  closeModalOverlay();
 });
 
 /* fixed navigation block - account button */
@@ -457,23 +473,33 @@ modalOverlayFixed.addEventListener('click', (e) => {
 const accountBtn = document.querySelector('.account-button');
 const logFixed = document.querySelector('.slide-in-log-in-fixed');
 const closeFixedBtn2 = document.querySelector('.close-fixed-button2');
-/* const modalOverlayFixed = document.querySelector('.modal-overlay-fixed'); */
 
 accountBtn.addEventListener('click', () => {
-  accountBtn.classList.toggle('is-open');
-  logFixed.classList.toggle('is-open');
-  modalOverlayFixed.classList.toggle('open-modal');
-  document.body.classList.toggle('modal-open');
+  if (isAccOpen()) {
+    closeFixedNavAcc();
+    closeModalOverlay();
+    return;
+  }
+
+  closeFixedNav();
+  accountBtn.classList.add('is-open');
+  logFixed.classList.add('is-open');
+  openModalOverlay();
 });
 
 function closeFixedNavAcc() {
   accountBtn.classList.remove('is-open');
   logFixed.classList.remove('is-open');
-  modalOverlayFixed.classList.remove('open-modal');
-  document.body.classList.remove('modal-open');
 }
 
-closeFixedBtn2.addEventListener('click', closeFixedNavAcc);
+function isAccOpen() {
+  return logFixed.classList.contains('is-open');
+}
+
+closeFixedBtn2.addEventListener('click', () => {
+  closeFixedNavAcc();
+  closeModalOverlay();  
+});
 
 /* fixed navigation block - hamburger menu button */
 /* TABS */

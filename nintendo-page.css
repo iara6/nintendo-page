@@ -2034,7 +2034,6 @@ path.cls-3 {
   border-radius: 4px;
 }
 
-
 .modal-overlay-fixed {
   position: fixed;
   top: 0;
@@ -2048,11 +2047,6 @@ path.cls-3 {
   z-index: 50;
 } 
 
-/* .modal-overlay-fixed.open-modal {
-  visibility: visible;
-  opacity: 1;
-} */
-
 .fixed-navigation-block-wrapper {
   display: none;
   position: fixed;
@@ -2060,11 +2054,9 @@ path.cls-3 {
   bottom: 0;
   transform: translateX(-50%);
   z-index: 60;
-  /* background-color: #085ea9; */
   width: 100%;
   height: 74px;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
-  border: 2px solid red;
 }
 
 .fixed-navigation-block-container {
@@ -2074,27 +2066,21 @@ path.cls-3 {
   transform: translateX(-50%);
   background-color: white;
   border-radius: 100px;
-  /* padding-inline: 1rem; */
   margin-inline: auto;
   height: 58px;
   max-width: 440px;
   width: 96%;
-  /* z-index: 60; */
-  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-  
-  /* border: 1px solid red; */
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2), 3px 0 7px 0 rgba(0, 0, 0, 0.2);
 }
 
 .fixed-navigation-buttons-div {
   display: flex;
   height: 100%;
   padding-inline: 1rem;
-  /* border-bottom-left-radius: 1.7rem;
-  border-bottom-right-radius: 1.7rem; */
   border-radius: 1.7rem;
   background-color: white;
-  /* border: 1px solid red; */
 }
+
 .fixed-navigation-buttons-div button:not(.magnifying-glass-button) {
   flex: auto;
   border: none;
@@ -2110,10 +2096,7 @@ path.cls-3 {
 .fixed-navigation-buttons-div button:hover a {
   color: var(--clr-red);
 }
-/* .hamburger-menu-button {
-  display: flex;
-  align-items: center;
-} */
+ 
 .hamburger-menu-button i,
 .account-button i {
   font-size: 1.5rem;
@@ -2152,7 +2135,6 @@ path.cls-3 {
   padding: 1rem 1rem 0;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  /* border-radius: 1rem; */
   background-color: var(--clr-light-gray);
 
   transform: translateY(100%); 
@@ -2211,18 +2193,14 @@ path.cls-3 {
   height: 14px;
   margin-right: 8px;
 }
-/* calc(100svh - 6.5rem) */
 
 .slide-in-nav-fixed,
 .slide-in-log-in-fixed {
-  /* display: none; */
   position: absolute;
   left: 0;
   bottom: 2rem;
   z-index: -1;
   height: 0;
-  /* height: calc(100svh - 6.5rem); */
-  /* overflow-x: scroll; */
   overflow-y: hidden;
   width: 100%;
   border-top-left-radius: 1rem;
@@ -2235,7 +2213,6 @@ path.cls-3 {
 .slide-in-nav-fixed.is-open,
 .slide-in-log-in-fixed.is-open {
   height: calc(100svh - 6.5rem);
-  /* transform: translateY(0);  */
   opacity: 1;
 }
 
@@ -2262,14 +2239,15 @@ path.cls-3 {
   right: 1rem;
   cursor: pointer;
 }
-.slide-in-nav-fixed .close-fixed-button i,
-.slide-in-log-in-fixed .close-fixed-button2 i {
+.slide-in-nav-fixed .close-fixed-button i {
   color: white;
   font-size: 1.5rem;
 }
 .slide-in-nav-fixed__options-container {
   height: calc(100svh - 6.5rem);
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
+  overflow-y: auto;
+  overflow-x: hidden; 
 }
 .nav-fixed__tabs {
   margin-top: 8px;
@@ -2391,9 +2369,9 @@ path.cls-3 {
   margin-right: 7px;
 }
 .log-in-side-content-div-fixed {
-/*   height: calc(100svh - 6.5rem);
-  overflow-x: scroll; */
-  padding-bottom: 2rem;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
 }
 .log-in-side-content-div-fixed h2 {
   text-align: center;
@@ -2418,8 +2396,29 @@ path.cls-3 {
 }
 
 .slide-in-log-in-fixed__options-container {
-  height: calc(100svh - 6.5rem);
-  overflow-x: scroll;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-bottom: 9rem;
+  background-color: var(--clr-light-gray);
+}
+
+.slide-in-log-in-fixed__options-container .log-in-side-links div:first-child,
+.slide-in-log-in-fixed__options-container .log-in-lower-links div {
+  height: 60px;
+}
+
+.slide-in-log-in-fixed .close-fixed-button2 i {
+  font-size: 1.5rem;
+  color: var(--clr-medium-gray);
+  transition: var(--trsn--color);
+}
+
+.slide-in-log-in-fixed .close-fixed-button2 {
+  top: 1rem;
+}
+
+.slide-in-log-in-fixed .close-fixed-button2:hover i {
+  color: var(--clr-gray);
 }
 
 @media screen and (max-width: 1440px) {
@@ -2572,7 +2571,6 @@ path.cls-3 {
   }
   .search-input-div input {
     font-size: 1rem;
-    /* padding: 0.4rem 1.7rem; */
   }
   .search-input-div input::placeholder {
     font-size: 1rem;
